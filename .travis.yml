@@ -1,0 +1,44 @@
+language: python
+matrix:
+  include:
+    - python: 3.7
+      dist: xenial
+      env: TOX_ENV=lint
+      install: pip install --upgrade flake8
+      script: make test-lint
+    - python: 3.7
+      dist: xenial
+      env: TOX_ENV=static-type-checks
+      install:
+        - pip install --upgrade pytype
+        - pip install -r requirements.txt
+      script: make test-type-check
+    - python: 3.7
+      dist: xenial
+      env: TOX_ENV=coverage
+      install:
+        - pip install --upgrade coverage pytest
+        - pip install .
+      script:
+        - coverage run --source {{ PROJECT }} -m py.test
+        - coverage report -m
+      after_success:
+        - bash <(curl -s https://codecov.io/bash)
+    - python: 3.6
+      env: TOX_ENV=py36
+      install: pip install --upgrade tox pytest
+      script: tox -e $TOX_ENV
+    - python: 3.7
+      env: TOX_ENV=py37
+      install: pip install --upgrade tox pytest
+      dist: xenial
+      script: tox -e $TOX_ENV
+    - os: osx
+      language: generic
+      osx_image: xcode11    # Python 3.7.4 running on macOS 10.14.4
+      install: pip install --upgrade tox pytest
+      env: TOX_ENV=py37
+      script: tox -e $TOX_ENV
+
+notifications:
+  email: false
