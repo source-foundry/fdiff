@@ -4,7 +4,7 @@
 import sys
 import argparse
 
-from {{ PROJECT }} import __version__
+from fdiff import __version__
 
 
 def main():  # pragma: no cover
@@ -16,9 +16,9 @@ def run(argv):
     # argparse command line argument definitions
     # ===========================================================
     parser = argparse.ArgumentParser(
-        description="{{ DESCRIPTION }}"
+        description="A font OpenType table diff tool"
     )
     parser.add_argument(
-        "--version", action="version", version="{{ PROJECT }} v{}".format(__version__)
+        "--version", action="version", version="fdiff v{}".format(__version__)
     )
     args = parser.parse_args(argv)

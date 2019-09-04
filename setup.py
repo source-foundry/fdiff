@@ -4,13 +4,13 @@ import sys
 from setuptools import setup, find_packages
 
 # Package meta-data.
-NAME = "{{ PROJECT }}"
-DESCRIPTION = "{{ DESCRIPTION }}"
-LICENSE = "{{ LICENSE }}"
-URL = "{{ URL }}"
-EMAIL = "{{ EMAIL }}"
-AUTHOR = "{{ AUTHOR }}"
-REQUIRES_PYTHON = ">={{ PYTHON }}"
+NAME = "fdiff"
+DESCRIPTION = "A font OpenType table diff tool"
+LICENSE = "Apache License v2.0"
+URL = "https://github.com/source-foundry/fdiff"
+EMAIL = "chris@sourcefoundry.org"
+AUTHOR = "Source Foundry Authors"
+REQUIRES_PYTHON = ">=3.6.0"
 
 INSTALL_REQUIRES = [""]
 # Optional packages
@@ -25,7 +25,7 @@ this_file_path = os.path.abspath(os.path.dirname(__file__))
 
 # Version
 main_namespace = {}
-version_fp = os.path.join(this_file_path, "lib", "{{ PROJECT }}", "__init__.py")
+version_fp = os.path.join(this_file_path, "lib", "fdiff", "__init__.py")
 try:
     with io.open(version_fp) as v:
         exec(v.read(), main_namespace)
@@ -66,7 +66,7 @@ setup(
     install_requires=INSTALL_REQUIRES,
     extras_require=EXTRAS_REQUIRES,
     python_requires=REQUIRES_PYTHON,
-    entry_points={"console_scripts": ["{{ PROJECT }} = {{ PROJECT }}.__main__:main"]},
+    entry_points={"console_scripts": ["fdiff = fdiff.__main__:main"]},
     classifiers=[
         "Development Status :: 4 - Beta",
         "Environment :: Console",

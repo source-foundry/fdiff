@@ -20,7 +20,7 @@ matrix:
         - pip install --upgrade coverage pytest
         - pip install .
       script:
-        - coverage run --source {{ PROJECT }} -m py.test
+        - coverage run --source fdiff -m py.test
         - coverage report -m
       after_success:
         - bash <(curl -s https://codecov.io/bash)
