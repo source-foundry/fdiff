@@ -1,5 +1,5 @@
---- Roboto-Regular.subset1.ttf	2019-09-05T14:04:24.748302-04:00
-+++ Roboto-Regular.subset2.ttf	2019-09-05T14:07:27.594299-04:00
+--- tests/testfiles/Roboto-Regular.subset1.ttf	2019-09-05T14:04:24.748302-04:00
++++ tests/testfiles/Roboto-Regular.subset2.ttf	2019-09-05T14:07:27.594299-04:00
 @@ -4,34 +4,34 @@
    <GlyphOrder>
      <!-- The 'id' attribute is only for humans; it is ignored when parsed. -->

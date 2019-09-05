@@ -1,5 +1,5 @@
-[31m--- Roboto-Regular.subset1.ttf	2019-09-05T14:04:24.748302-04:00
-[0m[32m+++ Roboto-Regular.subset2.ttf	2019-09-05T14:07:27.594299-04:00
+[31m--- tests/testfiles/Roboto-Regular.subset1.ttf	2019-09-05T14:04:24.748302-04:00
+[0m[32m+++ tests/testfiles/Roboto-Regular.subset2.ttf	2019-09-05T14:07:27.594299-04:00
 [0m[36m@@ -4,34 +4,34 @@
 [0m   <GlyphOrder>
      <!-- The 'id' attribute is only for humans; it is ignored when parsed. -->
