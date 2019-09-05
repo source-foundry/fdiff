@@ -35,7 +35,7 @@ matrix:
     - os: osx
       language: generic
       osx_image: xcode11    # Python 3.7.4 running on macOS 10.14.4
-      install: pip install --upgrade tox pytest
+      install: pip3 install --upgrade tox pytest
       env: TOX_ENV=py37
       script: tox -e $TOX_ENV
 
