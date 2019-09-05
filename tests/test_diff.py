@@ -21,7 +21,21 @@ with open(ROBOTO_UDIFF_COLOR_EXPECTED_PATH, "r") as robo_udiff_color:
 def test_unified_diff_default():
     res = u_diff(ROBOTO_BEFORE_PATH, ROBOTO_AFTER_PATH)
     res_string = "".join(res)
-    assert res_string == ROBOTO_UDIFF_EXPECTED
+    res_string_list = res_string.split("\n")
+    expected_string_list = ROBOTO_UDIFF_EXPECTED.split("\n")
+
+    # have to handle the tests for the top two file path lines
+    # differently than the rest of the comparisons because
+    # the time is defined using local platform settings
+    # which makes tests fail on remote CI testing services vs.
+    # my local testing platform...
+    for x, line in enumerate(res_string_list):
+        # treat top two lines of the diff as comparison of first 10 chars only
+        if x in (0, 1):
+            assert line[0:9] == expected_string_list[x][0:9]
+        else:
+            assert line == expected_string_list[x]
+
 
 
 
