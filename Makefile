@@ -24,7 +24,7 @@ install-user:
 test: test-lint test-type-check test-unit
 
 test-coverage:
-	coverage run --source fdiff -m py.test
+	coverage run --omit="lib/fdiff/thirdparty/fdifflib.py" --source fdiff -m py.test
 	coverage report -m
 #	coverage html
 
