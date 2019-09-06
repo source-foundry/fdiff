@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 # Package meta-data.
 NAME = "fdiff"
-DESCRIPTION = "A font OpenType table diff tool"
+DESCRIPTION = "An OpenType table diff tool for fonts"
 LICENSE = "Apache License v2.0"
 URL = "https://github.com/source-foundry/fdiff"
 EMAIL = "chris@sourcefoundry.org"
