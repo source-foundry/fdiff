@@ -3,6 +3,7 @@
 
 ## An OpenType table diff tool for fonts
 
+[![PyPI](https://img.shields.io/pypi/v/fdiff?color=blueviolet&label=PyPI&logo=python&logoColor=white)](https://pypi.org/project/fdiff/)
 [![GitHub license](https://img.shields.io/github/license/source-foundry/fdiff?color=blue)](https://github.com/source-foundry/fdiff/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/source-foundry/fdiff.svg?branch=master)](https://travis-ci.org/source-foundry/fdiff)
 [![Build status](https://ci.appveyor.com/api/projects/status/eafvbkc4iyv78dip/branch/master?svg=true)](https://ci.appveyor.com/project/chrissimpkins/fdiff/branch/master)
