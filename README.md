@@ -18,7 +18,7 @@
 
 - Takes two font file path arguments for comparison
 - Dumps OpenType table data in the fontTools library TTX format (XML)
-- Compares the OpenType table data across the two files using the Python standard library unified diff format
+- Compares the OpenType table data across the two files using the unified diff format supported in the Python standard library
 - Supports optional color coding of the diff lines in the terminal
 
 ## Installation
