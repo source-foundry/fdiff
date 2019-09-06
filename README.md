@@ -18,7 +18,7 @@
 
 - Takes two font file path arguments for comparison
 - Dumps OpenType table data in the fontTools library TTX format (XML)
-- Compares the OpenType table data across the two files using a unified diff format
+- Compares the OpenType table data across the two files using the Python standard library unified diff format
 - Supports optional color coding of the diff lines in the terminal
 
 ## Installation
@@ -107,7 +107,7 @@ Unit test coverage is executed with the `coverage` tool.  See the Makefile `test
 
 ## Acknowledgments
 
-`fdiff` is built with the fantastic [fontTools free software library](https://github.com/fonttools/fonttools) and performs text diffs of binary font files using the TTX OpenType table data serialization format defined by that project.  The implementation of unified text file diffs is based on a (slightly) modified version of the Python `difflib` library source to address performance issues with large text files that are encountered with ttx dumps of font binary data.
+`fdiff` is built with the fantastic [fontTools free software library](https://github.com/fonttools/fonttools) and performs text diffs of binary font files using the TTX OpenType table data serialization format defined by that project.  The implementation of unified text file diffs is based on a (slightly) modified version of the Python `difflib` standard library source.  The modifications address performance issues with large text files like those encountered with the ttx dumps of font binary data used in this project.
 
 ## Licenses
 
@@ -125,6 +125,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 #### CPython `difflib` library
 
-This project distributes a modified version of third party source code from the [Python programming language library](https://github.com/python/cpython).  The `difflib.py` v3.7.4 module is Copyright © 2001-2019 Python Software Foundation; All Rights Reserved. This source is modified and distributed in this project under the [PSF LICENSE AGREEMENT FOR PYTHON 3.7.4](https://github.com/source-foundry/fdiff/blob/master/lib/fdiff/thirdparty/PYTHON_LICENSE).  The module is renamed to `fdifflib.py` to distinguish it from the upstream source and modifications made here are documented in comments at the head of the module.
+This project distributes a modified version of third party source code from the [Python programming language standard library](https://github.com/python/cpython).  The `difflib.py` v3.7.4 module is Copyright © 2001-2019 Python Software Foundation; All Rights Reserved. This source is modified and distributed in this project under the [PSF LICENSE AGREEMENT FOR PYTHON 3.7.4](https://github.com/source-foundry/fdiff/blob/master/lib/fdiff/thirdparty/PYTHON_LICENSE).  The module is renamed to `fdifflib.py` to distinguish it from the upstream source and modifications made here are documented in comments at the head of the module.
 
 
