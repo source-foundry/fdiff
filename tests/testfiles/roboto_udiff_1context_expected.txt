@@ -1,0 +1,191 @@
+--- tests/testfiles/Roboto-Regular.subset1.ttf	2019-09-05T14:04:24.748302-04:00
++++ tests/testfiles/Roboto-Regular.subset2.ttf	2019-09-05T14:07:27.594299-04:00
+@@ -6,5 +6,5 @@
+     <GlyphID id="0" name=".notdef"/>
+-    <GlyphID id="1" name=".null"/>
+-    <GlyphID id="2" name="uni0002"/>
+-    <GlyphID id="3" name="uni0009"/>
++    <GlyphID id="1" name="glyph00001"/>
++    <GlyphID id="2" name="glyph00002"/>
++    <GlyphID id="3" name="glyph00003"/>
+     <GlyphID id="4" name="space"/>
+@@ -15,3 +15,3 @@
+     <GlyphID id="9" name="percent"/>
+-    <GlyphID id="10" name="dollar.smcp"/>
++    <GlyphID id="10" name="glyph00010"/>
+   </GlyphOrder>
+@@ -22,3 +22,3 @@
+     <fontRevision value="2.138"/>
+-    <checkSumAdjustment value="0x2c16bb4a"/>
++    <checkSumAdjustment value="0x5813354c"/>
+     <magicNumber value="0x5f0f3cf5"/>
+@@ -27,9 +27,9 @@
+     <created value="Fri Sep 12 10:29:34 2008"/>
+-    <modified value="Thu May 25 10:49:57 2017"/>
+-    <xMin value="-1825"/>
+-    <yMin value="-555"/>
+-    <xMax value="4188"/>
+-    <yMax value="2163"/>
++    <modified value="Thu Sep  5 18:07:11 2019"/>
++    <xMin value="68"/>
++    <yMin value="-237"/>
++    <xMax value="1411"/>
++    <yMax value="1692"/>
+     <macStyle value="00000000 00000000"/>
+-    <lowestRecPPEM value="9"/>
++    <lowestRecPPEM value="8"/>
+     <fontDirectionHint value="2"/>
+@@ -44,6 +44,6 @@
+     <lineGap value="0"/>
+-    <advanceWidthMax value="4368"/>
+-    <minLeftSideBearing value="-1825"/>
+-    <minRightSideBearing value="-1034"/>
+-    <xMaxExtent value="4187"/>
++    <advanceWidthMax value="1500"/>
++    <minLeftSideBearing value="69"/>
++    <minRightSideBearing value="26"/>
++    <xMaxExtent value="1411"/>
+     <caretSlopeRise value="1"/>
+@@ -63,6 +63,6 @@
+     <numGlyphs value="11"/>
+-    <maxPoints value="232"/>
+-    <maxContours value="22"/>
+-    <maxCompositePoints value="84"/>
+-    <maxCompositeContours value="7"/>
++    <maxPoints value="60"/>
++    <maxContours value="5"/>
++    <maxCompositePoints value="0"/>
++    <maxCompositeContours value="0"/>
+     <maxZones value="1"/>
+@@ -74,4 +74,4 @@
+     <maxSizeOfInstructions value="0"/>
+-    <maxComponentElements value="6"/>
+-    <maxComponentDepth value="2"/>
++    <maxComponentElements value="0"/>
++    <maxComponentDepth value="0"/>
+   </maxp>
+@@ -133,6 +133,8 @@
+     <mtx name=".notdef" width="908" lsb="100"/>
+-    <mtx name=".null" width="0" lsb="0"/>
+     <mtx name="dollar" width="1151" lsb="110"/>
+-    <mtx name="dollar.smcp" width="1056" lsb="68"/>
+     <mtx name="exclam" width="528" lsb="161"/>
++    <mtx name="glyph00001" width="0" lsb="0"/>
++    <mtx name="glyph00002" width="0" lsb="0"/>
++    <mtx name="glyph00003" width="508" lsb="0"/>
++    <mtx name="glyph00010" width="1056" lsb="69"/>
+     <mtx name="numbersign" width="1261" lsb="119"/>
+@@ -141,4 +143,2 @@
+     <mtx name="space" width="508" lsb="0"/>
+-    <mtx name="uni0002" width="0" lsb="0"/>
+-    <mtx name="uni0009" width="508" lsb="0"/>
+   </hmtx>
+@@ -219,4 +219,2 @@
+     </TTGlyph>
+-
+-    <TTGlyph name=".null"/><!-- contains no outline data -->
+ 
+@@ -272,3 +270,33 @@
+ 
+-    <TTGlyph name="dollar.smcp" xMin="68" yMin="-237" xMax="990" yMax="1395">
++    <TTGlyph name="exclam" xMin="161" yMin="-12" xMax="380" yMax="1456">
++      <contour>
++        <pt x="361" y="1456" on="1"/>
++        <pt x="348" y="411" on="1"/>
++        <pt x="181" y="411" on="1"/>
++        <pt x="167" y="1456" on="1"/>
++      </contour>
++      <contour>
++        <pt x="161" y="93" on="1"/>
++        <pt x="161" y="138" on="0"/>
++        <pt x="216" y="200" on="0"/>
++        <pt x="270" y="200" on="1"/>
++        <pt x="323" y="200" on="0"/>
++        <pt x="380" y="138" on="0"/>
++        <pt x="380" y="93" on="1"/>
++        <pt x="380" y="50" on="0"/>
++        <pt x="323" y="-12" on="0"/>
++        <pt x="270" y="-12" on="1"/>
++        <pt x="216" y="-12" on="0"/>
++        <pt x="161" y="50" on="0"/>
++      </contour>
++      <instructions/>
++    </TTGlyph>
++
++    <TTGlyph name="glyph00001"/><!-- contains no outline data -->
++
++    <TTGlyph name="glyph00002"/><!-- contains no outline data -->
++
++    <TTGlyph name="glyph00003"/><!-- contains no outline data -->
++
++    <TTGlyph name="glyph00010" xMin="68" yMin="-237" xMax="990" yMax="1395">
+       <contour>
+@@ -322,26 +350,2 @@
+ 
+-    <TTGlyph name="exclam" xMin="161" yMin="-12" xMax="380" yMax="1456">
+-      <contour>
+-        <pt x="361" y="1456" on="1"/>
+-        <pt x="348" y="411" on="1"/>
+-        <pt x="181" y="411" on="1"/>
+-        <pt x="167" y="1456" on="1"/>
+-      </contour>
+-      <contour>
+-        <pt x="161" y="93" on="1"/>
+-        <pt x="161" y="138" on="0"/>
+-        <pt x="216" y="200" on="0"/>
+-        <pt x="270" y="200" on="1"/>
+-        <pt x="323" y="200" on="0"/>
+-        <pt x="380" y="138" on="0"/>
+-        <pt x="380" y="93" on="1"/>
+-        <pt x="380" y="50" on="0"/>
+-        <pt x="323" y="-12" on="0"/>
+-        <pt x="270" y="-12" on="1"/>
+-        <pt x="216" y="-12" on="0"/>
+-        <pt x="161" y="50" on="0"/>
+-      </contour>
+-      <instructions/>
+-    </TTGlyph>
+-
+     <TTGlyph name="numbersign" xMin="119" yMin="0" xMax="1235" yMax="1456">
+@@ -480,6 +484,2 @@
+ 
+-    <TTGlyph name="uni0002"/><!-- contains no outline data -->
+-
+-    <TTGlyph name="uni0009"/><!-- contains no outline data -->
+-
+   </glyf>
+@@ -530,29 +530,2 @@
+   </name>
+-
+-  <post>
+-    <formatType value="2.0"/>
+-    <italicAngle value="0.0"/>
+-    <underlinePosition value="-150"/>
+-    <underlineThickness value="100"/>
+-    <isFixedPitch value="0"/>
+-    <minMemType42 value="0"/>
+-    <maxMemType42 value="0"/>
+-    <minMemType1 value="0"/>
+-    <maxMemType1 value="0"/>
+-    <psNames>
+-      <!-- This file uses unique glyph names based on the information
+-           found in the 'post' table. Since these names might not be unique,
+-           we have to invent artificial names in case of clashes. In order to
+-           be able to retain the original information, we need a name to
+-           ps name mapping for those cases where they differ. That's what
+-           you see below.
+-            -->
+-    </psNames>
+-    <extraNames>
+-      <!-- following are the name that are not taken from the standard Mac glyph order -->
+-      <psName name="uni0002"/>
+-      <psName name="uni0009"/>
+-      <psName name="dollar.smcp"/>
+-    </extraNames>
+-  </post>
+ 
+@@ -759,3 +732,3 @@
+         <SingleSubst index="0" Format="1">
+-          <Substitution in="dollar" out="dollar.smcp"/>
++          <Substitution in="dollar" out="glyph00010"/>
+         </SingleSubst>
