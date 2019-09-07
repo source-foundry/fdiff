@@ -13,20 +13,27 @@
 
 ## About
 
-`fdiff` is a Python command line comparison tool that demonstrates differences in the OpenType table data between font files.  The tool provides cross-platform support on macOS, Windows, and Linux systems with a Python v3.6+ interpreter.
+`fdiff` is a Python command line comparison tool for differences in the OpenType table data between font files.  The tool provides cross-platform support on macOS, Windows, and Linux systems with a Python v3.6+ interpreter.
 
 ## What it does
 
 - Takes two font file path arguments for comparison
 - Dumps OpenType table data in the fontTools library TTX format (XML)
-- Compares the OpenType table data across the two files using the unified diff format supported in the Python standard library
-- Supports optional color coding of the diff lines in the terminal
+- Compares the OpenType table data across the two files using the unified diff format with 3 lines of context by default
+
+## Optional Features
+
+- Filter OpenType tables with the `--include` or `--exclude` options
+- Modify the number of context lines displayed in the diff with the `-l` or `--lines` option
+- View colored diffs in the terminal with the `-c` or `--color` flag
+
+Run `fdiff --help` to view all available options.
 
 ## Installation
 
 `fdiff` requires a Python 3.6+ interpreter.
 
-Installation in a [Python3 virtual environment](https://docs.python.org/3/library/venv.html) is recommended as dependencies are pinned to versions that are confirmed to work with this project.
+Installation in a [Python3 virtual environment](https://docs.python.org/3/library/venv.html) is recommended.
 
 Use any of the following installation approaches:
 
@@ -60,12 +67,38 @@ $ pip3 install --ignore-installed -r requirements.txt -e ".[dev]"
 $ fdiff [OPTIONS] [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
-By default, an uncolored unified diff is performed on the two files.  To view a colored diff in your terminal, include either the `-c` or `--color` option in your command:
+By default, an uncolored unified diff is performed on the two files defined with the local file paths in the above command.  
 
-##### Color diffs
+#### Color diffs
+
+To view a colored diff in your terminal, include either the `-c` or `--color` option in your command:
 
 ```
 $ fdiff --color [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
+```
+
+#### Filter OpenType tables
+
+To include only specified tables in your diff, use the `--include` option with a comma separated list of table names:
+
+```
+$ fdiff --include head,post [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
+```
+
+To exclude specified tables in your diff, use the `--exclude` option with a comma separated list of table names:
+
+```
+$ fdiff --exclude glyf,OS/2 [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
+```
+
+**Do not include spaces** between the comma separated table name values!
+
+#### Change Number of Context Lines
+
+To change the number of lines of context above/below lines that have differences, use the `-l` or `--lines` option with an integer value for the desired number of lines.  The following command reduces the contextual information to a single line above and below lines with differences: 
+
+```
+$ fdiff -l 1 [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
 ### Other Options
@@ -108,11 +141,11 @@ Unit test coverage is executed with the `coverage` tool.  See the Makefile `test
 
 ## Acknowledgments
 
-`fdiff` is built with the fantastic [fontTools free software library](https://github.com/fonttools/fonttools) and performs text diffs of binary font files using the TTX OpenType table data serialization format defined by that project.  The implementation of unified text file diffs is based on a (slightly) modified version of the Python `difflib` standard library source.  The modifications address performance issues with large text files like those encountered with the ttx dumps of font binary data used in this project.
+`fdiff` is built with the fantastic [fontTools free software library](https://github.com/fonttools/fonttools) and performs text diffs of binary font files using dumps of the TTX OpenType table data serialization format as defined in the fontTools library.  The implementation of unified text file diffs is based on a (slightly) modified version of the Python `difflib` standard library source.  The modifications address diff performance issues with the lengthy text output from TTX dumps of font OpenType data. 
 
 ## Licenses
 
-### fdiff Project
+### fdiff
 
 Copyright 2019 Source Foundry Authors and Contributors
 
