@@ -1,0 +1,28 @@
+--- tests/testfiles/Roboto-Regular.subset1.ttf	2019-09-05T14:04:24.748302-04:00
++++ tests/testfiles/Roboto-Regular.subset2.ttf	2019-09-05T14:07:27.594299-04:00
+@@ -5,18 +5,18 @@
+     <!-- Most of this table will be recalculated by the compiler -->
+     <tableVersion value="1.0"/>
+     <fontRevision value="2.138"/>
+-    <checkSumAdjustment value="0x2c16bb4a"/>
++    <checkSumAdjustment value="0x5813354c"/>
+     <magicNumber value="0x5f0f3cf5"/>
+     <flags value="00000000 00011001"/>
+     <unitsPerEm value="2048"/>
+     <created value="Fri Sep 12 10:29:34 2008"/>
+-    <modified value="Thu May 25 10:49:57 2017"/>
+-    <xMin value="-1825"/>
+-    <yMin value="-555"/>
+-    <xMax value="4188"/>
+-    <yMax value="2163"/>
++    <modified value="Thu Sep  5 18:07:11 2019"/>
++    <xMin value="68"/>
++    <yMin value="-237"/>
++    <xMax value="1411"/>
++    <yMax value="1692"/>
+     <macStyle value="00000000 00000000"/>
+-    <lowestRecPPEM value="9"/>
++    <lowestRecPPEM value="8"/>
+     <fontDirectionHint value="2"/>
+     <indexToLocFormat value="0"/>
+     <glyphDataFormat value="0"/>

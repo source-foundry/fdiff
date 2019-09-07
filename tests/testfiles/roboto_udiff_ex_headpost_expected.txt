@@ -1,0 +1,184 @@
+--- tests/testfiles/Roboto-Regular.subset1.ttf	2019-09-05T14:04:24.748302-04:00
++++ tests/testfiles/Roboto-Regular.subset2.ttf	2019-09-05T14:07:27.594299-04:00
+@@ -4,16 +4,16 @@
+   <GlyphOrder>
+     <!-- The 'id' attribute is only for humans; it is ignored when parsed. -->
+     <GlyphID id="0" name=".notdef"/>
+-    <GlyphID id="1" name=".null"/>
+-    <GlyphID id="2" name="uni0002"/>
+-    <GlyphID id="3" name="uni0009"/>
++    <GlyphID id="1" name="glyph00001"/>
++    <GlyphID id="2" name="glyph00002"/>
++    <GlyphID id="3" name="glyph00003"/>
+     <GlyphID id="4" name="space"/>
+     <GlyphID id="5" name="exclam"/>
+     <GlyphID id="6" name="quotedbl"/>
+     <GlyphID id="7" name="numbersign"/>
+     <GlyphID id="8" name="dollar"/>
+     <GlyphID id="9" name="percent"/>
+-    <GlyphID id="10" name="dollar.smcp"/>
++    <GlyphID id="10" name="glyph00010"/>
+   </GlyphOrder>
+ 
+   <hhea>
+@@ -21,10 +21,10 @@
+     <ascent value="1900"/>
+     <descent value="-500"/>
+     <lineGap value="0"/>
+-    <advanceWidthMax value="4368"/>
+-    <minLeftSideBearing value="-1825"/>
+-    <minRightSideBearing value="-1034"/>
+-    <xMaxExtent value="4187"/>
++    <advanceWidthMax value="1500"/>
++    <minLeftSideBearing value="69"/>
++    <minRightSideBearing value="26"/>
++    <xMaxExtent value="1411"/>
+     <caretSlopeRise value="1"/>
+     <caretSlopeRun value="0"/>
+     <caretOffset value="0"/>
+@@ -40,10 +40,10 @@
+     <!-- Most of this table will be recalculated by the compiler -->
+     <tableVersion value="0x10000"/>
+     <numGlyphs value="11"/>
+-    <maxPoints value="232"/>
+-    <maxContours value="22"/>
+-    <maxCompositePoints value="84"/>
+-    <maxCompositeContours value="7"/>
++    <maxPoints value="60"/>
++    <maxContours value="5"/>
++    <maxCompositePoints value="0"/>
++    <maxCompositeContours value="0"/>
+     <maxZones value="1"/>
+     <maxTwilightPoints value="0"/>
+     <maxStorage value="0"/>
+@@ -51,8 +51,8 @@
+     <maxInstructionDefs value="0"/>
+     <maxStackElements value="0"/>
+     <maxSizeOfInstructions value="0"/>
+-    <maxComponentElements value="6"/>
+-    <maxComponentDepth value="2"/>
++    <maxComponentElements value="0"/>
++    <maxComponentDepth value="0"/>
+   </maxp>
+ 
+   <OS_2>
+@@ -110,16 +110,16 @@
+ 
+   <hmtx>
+     <mtx name=".notdef" width="908" lsb="100"/>
+-    <mtx name=".null" width="0" lsb="0"/>
+     <mtx name="dollar" width="1151" lsb="110"/>
+-    <mtx name="dollar.smcp" width="1056" lsb="68"/>
+     <mtx name="exclam" width="528" lsb="161"/>
++    <mtx name="glyph00001" width="0" lsb="0"/>
++    <mtx name="glyph00002" width="0" lsb="0"/>
++    <mtx name="glyph00003" width="508" lsb="0"/>
++    <mtx name="glyph00010" width="1056" lsb="69"/>
+     <mtx name="numbersign" width="1261" lsb="119"/>
+     <mtx name="percent" width="1500" lsb="105"/>
+     <mtx name="quotedbl" width="656" lsb="137"/>
+     <mtx name="space" width="508" lsb="0"/>
+-    <mtx name="uni0002" width="0" lsb="0"/>
+-    <mtx name="uni0009" width="508" lsb="0"/>
+   </hmtx>
+ 
+   <cmap>
+@@ -196,8 +196,6 @@
+       </contour>
+       <instructions/>
+     </TTGlyph>
+-
+-    <TTGlyph name=".null"/><!-- contains no outline data -->
+ 
+     <TTGlyph name="dollar" xMin="110" yMin="-208" xMax="1042" yMax="1692">
+       <contour>
+@@ -249,7 +247,37 @@
+       <instructions/>
+     </TTGlyph>
+ 
+-    <TTGlyph name="dollar.smcp" xMin="68" yMin="-237" xMax="990" yMax="1395">
++    <TTGlyph name="exclam" xMin="161" yMin="-12" xMax="380" yMax="1456">
++      <contour>
++        <pt x="361" y="1456" on="1"/>
++        <pt x="348" y="411" on="1"/>
++        <pt x="181" y="411" on="1"/>
++        <pt x="167" y="1456" on="1"/>
++      </contour>
++      <contour>
++        <pt x="161" y="93" on="1"/>
++        <pt x="161" y="138" on="0"/>
++        <pt x="216" y="200" on="0"/>
++        <pt x="270" y="200" on="1"/>
++        <pt x="323" y="200" on="0"/>
++        <pt x="380" y="138" on="0"/>
++        <pt x="380" y="93" on="1"/>
++        <pt x="380" y="50" on="0"/>
++        <pt x="323" y="-12" on="0"/>
++        <pt x="270" y="-12" on="1"/>
++        <pt x="216" y="-12" on="0"/>
++        <pt x="161" y="50" on="0"/>
++      </contour>
++      <instructions/>
++    </TTGlyph>
++
++    <TTGlyph name="glyph00001"/><!-- contains no outline data -->
++
++    <TTGlyph name="glyph00002"/><!-- contains no outline data -->
++
++    <TTGlyph name="glyph00003"/><!-- contains no outline data -->
++
++    <TTGlyph name="glyph00010" xMin="68" yMin="-237" xMax="990" yMax="1395">
+       <contour>
+         <pt x="990" y="300" on="1"/>
+         <pt x="990" y="168" on="0"/>
+@@ -299,30 +327,6 @@
+       <instructions/>
+     </TTGlyph>
+ 
+-    <TTGlyph name="exclam" xMin="161" yMin="-12" xMax="380" yMax="1456">
+-      <contour>
+-        <pt x="361" y="1456" on="1"/>
+-        <pt x="348" y="411" on="1"/>
+-        <pt x="181" y="411" on="1"/>
+-        <pt x="167" y="1456" on="1"/>
+-      </contour>
+-      <contour>
+-        <pt x="161" y="93" on="1"/>
+-        <pt x="161" y="138" on="0"/>
+-        <pt x="216" y="200" on="0"/>
+-        <pt x="270" y="200" on="1"/>
+-        <pt x="323" y="200" on="0"/>
+-        <pt x="380" y="138" on="0"/>
+-        <pt x="380" y="93" on="1"/>
+-        <pt x="380" y="50" on="0"/>
+-        <pt x="323" y="-12" on="0"/>
+-        <pt x="270" y="-12" on="1"/>
+-        <pt x="216" y="-12" on="0"/>
+-        <pt x="161" y="50" on="0"/>
+-      </contour>
+-      <instructions/>
+-    </TTGlyph>
+-
+     <TTGlyph name="numbersign" xMin="119" yMin="0" xMax="1235" yMax="1456">
+       <contour>
+         <pt x="686" y="0" on="1"/>
+@@ -456,10 +460,6 @@
+     </TTGlyph>
+ 
+     <TTGlyph name="space"/><!-- contains no outline data -->
+-
+-    <TTGlyph name="uni0002"/><!-- contains no outline data -->
+-
+-    <TTGlyph name="uni0009"/><!-- contains no outline data -->
+ 
+   </glyf>
+ 
+@@ -709,7 +709,7 @@
+         <LookupFlag value="0"/>
+         <!-- SubTableCount=1 -->
+         <SingleSubst index="0" Format="1">
+-          <Substitution in="dollar" out="dollar.smcp"/>
++          <Substitution in="dollar" out="glyph00010"/>
+         </SingleSubst>
+       </Lookup>
+     </LookupList>
