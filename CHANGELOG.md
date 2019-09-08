@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.3.0
+
+- Add support for filtered diff output by top n lines with new `--head` option
+- Add support for filtered diff output by last n lines with new `--tail` option
+- Add new `fdiff.textiter` module
+- Add README.md table of contents
+
 ## v0.2.0
 
 - Added support for OpenType table include and exclude filters
