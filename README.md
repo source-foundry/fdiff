@@ -15,7 +15,9 @@
 
 `fdiff` is a Python command line comparison tool for differences in the OpenType table data between font files.  The tool provides cross-platform support on macOS, Windows, and Linux systems with a Python v3.6+ interpreter.
 
-<img src="https://raw.githubusercontent.com/source-foundry/fdiff/img/img/diff-example-crunch.png" width="450" style="display:block; margin-left: auto; margin-right: auto;"/>
+<p align="center">
+<img src="https://raw.githubusercontent.com/source-foundry/fdiff/img/img/diff-example-crunch.png" width="500"/>
+</p>
 
 ## What it does
 
