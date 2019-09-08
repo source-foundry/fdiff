@@ -87,7 +87,7 @@ By default, an uncolored unified diff is performed on the two files defined with
 
 ### Options
 
-#### Color diffs
+<h4 style="color:#7cb490">Color diffs</h4>
 
 To view a colored diff in your terminal, include either the `-c` or `--color` option in your command:
 
@@ -95,7 +95,7 @@ To view a colored diff in your terminal, include either the `-c` or `--color` op
 $ fdiff --color [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
-#### Filter OpenType tables
+<h4 style="color:#7cb490">Filter OpenType tables</h4>
 
 To include only specified tables in your diff, use the `--include` option with a comma separated list of table names:
 
@@ -111,7 +111,7 @@ $ fdiff --exclude glyf,OS/2 [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 
 **Do not include spaces** between the comma separated table name values!
 
-#### Change number of context lines
+<h4 style="color:#7cb490">Change number of context lines</h4>
 
 To change the number of lines of context above/below lines that have differences, use the `-l` or `--lines` option with an integer value for the desired number of lines.  The following command reduces the contextual information to a single line above and below lines with differences: 
 
@@ -119,7 +119,7 @@ To change the number of lines of context above/below lines that have differences
 $ fdiff -l 1 [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
-#### Display first n lines of output
+<h4 style="color:#7cb490">Display the first n lines of output</h4>
 
 Use the `--head` option followed by an integer for the number of lines at the beginning of the output.  For example, the following command displays the first 20 lines of the diff:
 
@@ -127,7 +127,7 @@ Use the `--head` option followed by an integer for the number of lines at the be
 $ fdiff --head 20 [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
-#### Display the last n lines of output
+<h4 style="color:#7cb490">Display the last n lines of output</h4>
 
 Use the `--tail` option followed by an integer for the number of lines at the end of the output.  For example, the following command displays the last 20 lines of the diff:
 
