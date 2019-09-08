@@ -19,13 +19,16 @@
 
 - Takes two font file path arguments for comparison
 - Dumps OpenType table data in the fontTools library TTX format (XML)
-- Compares the OpenType table data across the two files using the unified diff format with 3 lines of context by default
+- Compares the OpenType table data across the two files using the unified diff format with 3 lines of surrounding context
 
 ## Optional Features
 
+- View colored diffs in the terminal with the `-c` or `--color` flag
 - Filter OpenType tables with the `--include` or `--exclude` options
 - Modify the number of context lines displayed in the diff with the `-l` or `--lines` option
-- View colored diffs in the terminal with the `-c` or `--color` flag
+- Display the first n lines of the diff output with the `--head` option
+- Display the last n lines of the diff output with the `--tail` option
+
 
 Run `fdiff --help` to view all available options.
 
@@ -67,7 +70,9 @@ $ pip3 install --ignore-installed -r requirements.txt -e ".[dev]"
 $ fdiff [OPTIONS] [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
-By default, an uncolored unified diff is performed on the two files defined with the local file paths in the above command.  
+By default, an uncolored unified diff is performed on the two files defined with the local file paths in the above command.
+
+### Options
 
 #### Color diffs
 
@@ -93,12 +98,28 @@ $ fdiff --exclude glyf,OS/2 [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 
 **Do not include spaces** between the comma separated table name values!
 
-#### Change Number of Context Lines
+#### Change number of context lines
 
 To change the number of lines of context above/below lines that have differences, use the `-l` or `--lines` option with an integer value for the desired number of lines.  The following command reduces the contextual information to a single line above and below lines with differences: 
 
 ```
 $ fdiff -l 1 [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
+```
+
+#### Display first n lines of output
+
+Use the `--head` option followed by an integer for the number of lines at the beginning of the output.  For example, the following command displays the first 20 lines of the diff:
+
+```
+$ fdiff --head 20 [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
+```
+
+#### Display the last n lines of output
+
+Use the `--tail` option followed by an integer for the number of lines at the end of the output.  For example, the following command displays the last 20 lines of the diff:
+
+```
+$ fdiff --tail 20 [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
 ### Other Options
