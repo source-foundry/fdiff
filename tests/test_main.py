@@ -270,8 +270,10 @@ def test_main_head_request(capsys):
     # which makes tests fail on different remote CI testing services
     for x, line in enumerate(res_string_list):
         # treat top two lines of the diff as comparison of first 10 chars only
-        if x in (0, 1):
-            assert "tests/testfiles/Roboto-Regular.subset" in line
+        if x == 0:
+            assert line.startswith("---")
+        elif x == 1:
+            assert line.startswith("+++")
         elif x == 2:
             assert line == "@@ -4,34 +4,34 @@"
         elif x == 3:
