@@ -251,3 +251,55 @@ def test_main_exclude_with_bad_table_definition_in_multi_table_request(capsys):
         captured = capsys.readouterr()
         assert captured.error.startswith("[*] ERROR:")
         assert exit_info.value.code == 1
+
+
+def test_main_head_request(capsys):
+    args = ["--head", "4", ROBOTO_BEFORE_PATH, ROBOTO_AFTER_PATH]
+
+    run(args)
+    captured = capsys.readouterr()
+    res_string_list = captured.out.split("\n")
+
+    # includes a newline at the end of the last line of output
+    # which makes the total # of lines in the list == n + 1
+    assert len(res_string_list) == 5
+
+    # have to handle the tests for the top two file path lines
+    # differently than the rest of the comparisons because
+    # the time is defined using local platform settings
+    # which makes tests fail on different remote CI testing services
+    for x, line in enumerate(res_string_list):
+        # treat top two lines of the diff as comparison of first 10 chars only
+        if x in (0, 1):
+            assert "tests/testfiles/Roboto-Regular.subset" in line
+        elif x == 2:
+            assert line == "@@ -4,34 +4,34 @@"
+        elif x == 3:
+            assert line == "   <GlyphOrder>"
+        else:
+            assert line == ""
+
+
+def test_main_tail_request(capsys):
+    args = ["--tail", "2", ROBOTO_BEFORE_PATH, ROBOTO_AFTER_PATH]
+
+    run(args)
+    captured = capsys.readouterr()
+    res_string_list = captured.out.split("\n")
+
+    # includes a newline at the end of the last line of output
+    # which makes the total # of lines in the list == n + 1
+    assert len(res_string_list) == 3
+
+    # have to handle the tests for the top two file path lines
+    # differently than the rest of the comparisons because
+    # the time is defined using local platform settings
+    # which makes tests fail on different remote CI testing services
+    for x, line in enumerate(res_string_list):
+        # treat top two lines of the diff as comparison of first 10 chars only
+        if x == 0:
+            assert line == "       </Lookup>"
+        elif x == 1:
+            assert line == "     </LookupList>"
+        else:
+            assert line == ""
