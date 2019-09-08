@@ -32,6 +32,15 @@
 
 Run `fdiff --help` to view all available options.
 
+## Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Issues](#issues)
+- [Contributing](#contributing)
+- [Acknowledgments](#acknowledgments)
+- [Licenses](#licenses)
+
 ## Installation
 
 `fdiff` requires a Python 3.6+ interpreter.
