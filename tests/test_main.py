@@ -16,6 +16,11 @@ ROBOTO_UDIFF_HEADONLY_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto
 ROBOTO_UDIFF_HEADPOSTONLY_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_headpostonly_expected.txt")
 ROBOTO_UDIFF_EXCLUDE_HEADPOST_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_ex_headpost_expected.txt")
 
+ROBOTO_BEFORE_URL = "https://github.com/source-foundry/fdiff/raw/master/tests/testfiles/Roboto-Regular.subset1.ttf"
+ROBOTO_AFTER_URL = "https://github.com/source-foundry/fdiff/raw/master/tests/testfiles/Roboto-Regular.subset2.ttf"
+
+URL_404 = "https://httpbin.org/status/404"
+
 
 # Setup: define the expected diff text for unified diff
 with open(ROBOTO_UDIFF_EXPECTED_PATH, "r") as robo_udiff:
@@ -87,7 +92,7 @@ def test_main_include_exclude_defined_simultaneously(capsys):
 #  Unified diff integration tests
 #
 
-def test_main_run_unified_default(capsys):
+def test_main_run_unified_default_local_files(capsys):
     args = [ROBOTO_BEFORE_PATH, ROBOTO_AFTER_PATH]
 
     run(args)
@@ -106,6 +111,39 @@ def test_main_run_unified_default(capsys):
             assert line[0:9] == expected_string_list[x][0:9]
         else:
             assert line == expected_string_list[x]
+
+
+def test_main_run_unified_default_remote_files(capsys):
+    args = [ROBOTO_BEFORE_URL, ROBOTO_AFTER_URL]
+
+    run(args)
+    captured = capsys.readouterr()
+
+    res_string_list = captured.out.split("\n")
+    expected_string_list = ROBOTO_UDIFF_EXPECTED.split("\n")
+
+    # have to handle the tests for the top two file path lines
+    # differently than the rest of the comparisons because
+    # the time is defined using local platform settings
+    # which makes tests fail on different remote CI testing services
+    for x, line in enumerate(res_string_list):
+        # treat top two lines of the diff as comparison of first 10 chars only
+        if x == 0:
+            assert line[0:9] == "--- https"
+        elif x == 1:
+            assert line[0:9] == "+++ https"
+        else:
+            assert line == expected_string_list[x]
+
+
+def test_main_run_unified_default_404(capsys):
+    with pytest.raises(SystemExit):
+        args = [URL_404, URL_404]
+
+        run(args)
+        captured = capsys.readouterr()
+        assert captured.out.startswith("[*] ERROR:")
+        assert "HTTP status code 404" in captured.out
 
 
 def test_main_run_unified_color(capsys):
