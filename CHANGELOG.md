@@ -1,5 +1,23 @@
 # Changelog
 
+## v0.4.0
+
+- Added support for remote font files with asynchronous I/O GET requests.  This feature supports combinations of local and remote font file comparisons.
+    - `fdiff` executable: added support for remote font files with command line URL arguments
+    - `fdiff` executable: refactored unified diff error message formatting
+    - Library: add new `fdiff.remote` module
+    - Library: add new `fdiff.aio` module
+    - Library: add new `fdiff.exceptions` module
+    - Library: refactored `fdiff.diff.unified_diff()` function to support remote files through URL
+    - Library: refactored local file path checks to support remote files via URL
+    - added new aiohttp, aiodns, aiofiles dependencies to requirements.txt
+    - added new aiohttp, aiodns, aiofiles dependencies to setup.py
+    - added pytest-asyncio dependency to setup.py [dev] install target
+    - added pytest-asyncio dependency instatllation to tox.ini, .travis.yml, .appveyor.yml configuration files
+- Py3.6+ updates: removed `# -*- coding: utf-8 -*-` header definitions (Thanks Niko!)
+- updated fontTools dependency to v4.0.1 (from v4.0.0)
+- Updated README.md documentation
+
 ## v0.3.0
 
 - Added support for head and tail diff output filter functionality
