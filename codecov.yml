@@ -1,7 +1,16 @@
 codecov:
   max_report_age: off
 
-comment: off
+coverage:
+  status:
+    project:
+      default:
+        # basic
+        target: auto
+        threshold: 2%
+        base: auto
 
 ignore:
   - "lib/fdiff/thirdparty"
+
+comment: off
