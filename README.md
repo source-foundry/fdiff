@@ -13,7 +13,7 @@
 
 ## About
 
-`fdiff` is a Python command line comparison tool for differences in the OpenType table data between font files.  The tool provides cross-platform support on macOS, Windows, and Linux systems with a Python v3.6+ interpreter.
+`fdiff` is a Python command line comparison tool for assessment of differences in the OpenType table data between font files.  The tool provides cross-platform support on macOS, Windows, and Linux systems with a Python v3.6+ interpreter.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/source-foundry/fdiff/img/img/diff-example-crunch.png" width="500"/>
@@ -21,7 +21,7 @@
 
 ## What it does
 
-- Takes two font file path arguments for comparison
+- Takes two font file path (or URL for remote fonts) arguments for the font comparison
 - Dumps OpenType table data in the fontTools library TTX format (XML)
 - Compares the OpenType table data across the two files using the unified diff format with 3 lines of surrounding context
 
@@ -79,15 +79,33 @@ $ pip3 install --ignore-installed -r requirements.txt -e ".[dev]"
 
 ## Usage
 
+#### Local font files
+
 ```
 $ fdiff [OPTIONS] [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
-By default, an uncolored unified diff is performed on the two files defined with the local file paths in the above command.
+#### Remote font files
+
+`fdiff` supports GET requests for publicly accessible remote font files.  Replace the file path arguments with URL:
+
+```
+$ fdiff [OPTIONS] [PRE-FONT FILE URL] [POST-FONT FILE URL]
+```
+
+`fdiff` works with any combination of local and remote font files. For example, to compare a local post font file with a remote pre font file to assess local changes against a font file that was previously pushed to a remote, use the following syntax:
+
+```
+$ fdiff [OPTIONS] [PRE-FONT FILE URL] [POST-FONT FILE FILE PATH]
+```
+
+⭐ **Tip**: Remote git repository hosting services (like Github) support access to files on different git branches by URL.  Use these repository branch URL to compare fonts across git branches in your repository.
 
 ### Options
 
 #### Color diffs
+
+Uncolored diffs are performed by default.
 
 To view a colored diff in your terminal, include either the `-c` or `--color` option in your command:
 

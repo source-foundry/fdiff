@@ -3,6 +3,7 @@ import os
 import pytest
 
 from fdiff.diff import u_diff
+from fdiff.exceptions import AIOError
 
 ROBOTO_BEFORE_PATH = os.path.join("tests", "testfiles", "Roboto-Regular.subset1.ttf")
 ROBOTO_AFTER_PATH = os.path.join("tests", "testfiles", "Roboto-Regular.subset2.ttf")
@@ -12,6 +13,11 @@ ROBOTO_UDIFF_1CONTEXT_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto
 ROBOTO_UDIFF_HEADONLY_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_headonly_expected.txt")
 ROBOTO_UDIFF_HEADPOSTONLY_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_headpostonly_expected.txt")
 ROBOTO_UDIFF_EXCLUDE_HEADPOST_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_ex_headpost_expected.txt")
+
+ROBOTO_BEFORE_URL = "https://github.com/source-foundry/fdiff/raw/master/tests/testfiles/Roboto-Regular.subset1.ttf"
+ROBOTO_AFTER_URL = "https://github.com/source-foundry/fdiff/raw/master/tests/testfiles/Roboto-Regular.subset2.ttf"
+
+URL_404 = "https://httpbin.org/status/404"
 
 # Setup: define the expected diff text for unified diff
 with open(ROBOTO_UDIFF_EXPECTED_PATH, "r") as robo_udiff:
@@ -141,3 +147,67 @@ def test_unified_diff_include_with_bad_table_definition():
 def test_unified_diff_exclude_with_bad_table_definition():
     with pytest.raises(KeyError):
         u_diff(ROBOTO_BEFORE_PATH, ROBOTO_AFTER_PATH, exclude_tables=["bogus"])
+
+
+def test_unified_diff_remote_fonts():
+    res = u_diff(ROBOTO_BEFORE_URL, ROBOTO_AFTER_URL)
+    res_string = "".join(res)
+    res_string_list = res_string.split("\n")
+    expected_string_list = ROBOTO_UDIFF_EXPECTED.split("\n")
+
+    # have to handle the tests for the top two file path lines
+    # differently than the rest of the comparisons
+    for x, line in enumerate(res_string_list):
+        # treat top two lines of the diff as comparison of first 10 chars only
+        if x == 0:
+            assert line[0:9] == "--- https"
+        elif x == 1:
+            assert line[0:9] == "+++ https"
+        else:
+            assert line == expected_string_list[x]
+
+
+def test_unified_diff_remote_and_local_fonts():
+    res = u_diff(ROBOTO_BEFORE_URL, ROBOTO_AFTER_PATH)
+    res_string = "".join(res)
+    res_string_list = res_string.split("\n")
+    expected_string_list = ROBOTO_UDIFF_EXPECTED.split("\n")
+
+    # have to handle the tests for the top two file path lines
+    # differently than the rest of the comparisons
+    for x, line in enumerate(res_string_list):
+        # treat top two lines of the diff as comparison of first 10 chars only
+        if x == 0:
+            assert line[0:9] == "--- https"
+        elif x == 1:
+            assert line[0:9] == expected_string_list[x][0:9]
+        else:
+            assert line == expected_string_list[x]
+
+
+def test_unified_diff_local_and_remote_fonts():
+    res = u_diff(ROBOTO_BEFORE_PATH, ROBOTO_AFTER_URL)
+    res_string = "".join(res)
+    res_string_list = res_string.split("\n")
+    expected_string_list = ROBOTO_UDIFF_EXPECTED.split("\n")
+
+    # have to handle the tests for the top two file path lines
+    # differently than the rest of the comparisons
+    for x, line in enumerate(res_string_list):
+        # treat top two lines of the diff as comparison of first 10 chars only
+        if x == 0:
+            assert line[0:9] == expected_string_list[x][0:9]
+        elif x == 1:
+            assert line[0:9] == "+++ https"
+        else:
+            assert line == expected_string_list[x]
+
+
+def test_unified_diff_remote_404_first_file():
+    with pytest.raises(AIOError):
+        u_diff(URL_404, ROBOTO_AFTER_URL)
+
+
+def test_unified_diff_remote_404_second_file():
+    with pytest.raises(AIOError):
+        u_diff(ROBOTO_BEFORE_URL, URL_404)

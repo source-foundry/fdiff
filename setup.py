@@ -12,11 +12,16 @@ EMAIL = "chris@sourcefoundry.org"
 AUTHOR = "Source Foundry Authors"
 REQUIRES_PYTHON = ">=3.6.0"
 
-INSTALL_REQUIRES = ["fontTools >= 4.0.0"]
+INSTALL_REQUIRES = [
+    "fontTools >= 4.0.0",
+    "aiohttp >= 3.6.0",
+    "aiodns >= 2.0.0",
+    "aiofiles >= 0.4.0"
+]
 # Optional packages
 EXTRAS_REQUIRES = {
     # for developer installs
-    "dev": ["coverage", "pytest", "tox", "flake8", "pytype"],
+    "dev": ["coverage", "pytest", "pytest-asyncio", "tox", "flake8", "pytype"],
     # for maintainer installs
     "maintain": ["wheel", "setuptools", "twine"],
 }

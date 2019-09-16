@@ -20,7 +20,7 @@ install:
   - "python -m pip install --disable-pip-version-check --user --upgrade pip setuptools virtualenv"
 
   # install the dependencies to run the tests
-  - "python -m pip install tox"
+  - "python -m pip install --upgrade tox pytest pytest-asyncio"
 
 build: false
 
