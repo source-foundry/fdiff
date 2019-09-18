@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.5.1
+
+- `fdiff` executable: Fix help message - added information about pre/post file argument support for URL in addition to local file paths
+
 ## v0.5.0
 
 - Performance optimizations
