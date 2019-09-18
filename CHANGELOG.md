@@ -1,5 +1,12 @@
 # Changelog
 
+## v0.5.0
+
+- Performance optimizations
+	- Library: New default parallel TTX XML dump on systems that have more than one CPU, falls back to sequential execution on single CPU systems
+	- `fdiff` executable: New `--nomp` option that overrides the default multi processor optimizations
+- `fdiff` executable: Added new default standard output user notification that no difference was identified when the files under evaluation are the same.  This replaces no output in the standard output stream and an exit status code of zero as the indicators that there were no differences identified between the files.
+
 ## v0.4.0
 
 - Added support for remote font files with asynchronous I/O GET requests.  This feature supports combinations of local and remote font file comparisons.
