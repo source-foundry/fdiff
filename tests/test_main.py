@@ -92,8 +92,38 @@ def test_main_include_exclude_defined_simultaneously(capsys):
 #  Unified diff integration tests
 #
 
+def test_main_run_unified_default_local_files_no_diff(capsys):
+    """Test default behavior when there is no difference in font files under evaluation"""
+    args = [ROBOTO_BEFORE_PATH, ROBOTO_BEFORE_PATH]
+
+    run(args)
+    captured = capsys.readouterr()
+    assert captured.out == f"[*] There is no difference between the files.{os.linesep}"
+
+
 def test_main_run_unified_default_local_files(capsys):
     args = [ROBOTO_BEFORE_PATH, ROBOTO_AFTER_PATH]
+
+    run(args)
+    captured = capsys.readouterr()
+
+    res_string_list = captured.out.split("\n")
+    expected_string_list = ROBOTO_UDIFF_EXPECTED.split("\n")
+
+    # have to handle the tests for the top two file path lines
+    # differently than the rest of the comparisons because
+    # the time is defined using local platform settings
+    # which makes tests fail on different remote CI testing services
+    for x, line in enumerate(res_string_list):
+        # treat top two lines of the diff as comparison of first 10 chars only
+        if x in (0, 1):
+            assert line[0:9] == expected_string_list[x][0:9]
+        else:
+            assert line == expected_string_list[x]
+
+
+def test_main_run_unified_local_files_without_mp_optimizations(capsys):
+    args = ["--nomp", ROBOTO_BEFORE_PATH, ROBOTO_AFTER_PATH]
 
     run(args)
     captured = capsys.readouterr()
