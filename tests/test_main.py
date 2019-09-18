@@ -98,7 +98,7 @@ def test_main_run_unified_default_local_files_no_diff(capsys):
 
     run(args)
     captured = capsys.readouterr()
-    assert captured.out == f"[*] There is no difference between the files.{os.linesep}"
+    assert captured.out.startswith("[*] There is no difference between the files.")
 
 
 def test_main_run_unified_default_local_files(capsys):
