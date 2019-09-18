@@ -1,8 +1,11 @@
 import os
+import tempfile
 
 import pytest
 
-from fdiff.diff import u_diff
+from fontTools.ttLib import TTFont
+
+from fdiff.diff import u_diff, _ttfont_save_xml
 from fdiff.exceptions import AIOError
 
 ROBOTO_BEFORE_PATH = os.path.join("tests", "testfiles", "Roboto-Regular.subset1.ttf")
@@ -44,8 +47,33 @@ with open(ROBOTO_UDIFF_EXCLUDE_HEADPOST_EXPECTED_PATH, "r") as robo_udiff_ex_hea
     ROBOTO_UDIFF_EXCLUDE_HEADPOST_EXPECTED = robo_udiff_ex_headpost.read()
 
 
+def test_unified_diff_default_no_diff():
+    res = u_diff(ROBOTO_BEFORE_PATH, ROBOTO_BEFORE_PATH)
+    res_string = "".join(res)
+    assert res_string == ""
+
+
 def test_unified_diff_default():
     res = u_diff(ROBOTO_BEFORE_PATH, ROBOTO_AFTER_PATH)
+    res_string = "".join(res)
+    res_string_list = res_string.split("\n")
+    expected_string_list = ROBOTO_UDIFF_EXPECTED.split("\n")
+
+    # have to handle the tests for the top two file path lines
+    # differently than the rest of the comparisons because
+    # the time is defined using local platform settings
+    # which makes tests fail on remote CI testing services vs.
+    # my local testing platform...
+    for x, line in enumerate(res_string_list):
+        # treat top two lines of the diff as comparison of first 10 chars only
+        if x in (0, 1):
+            assert line[0:9] == expected_string_list[x][0:9]
+        else:
+            assert line == expected_string_list[x]
+
+
+def test_unified_diff_without_mp_optimizations():
+    res = u_diff(ROBOTO_BEFORE_PATH, ROBOTO_AFTER_PATH, use_multiprocess=False)
     res_string = "".join(res)
     res_string_list = res_string.split("\n")
     expected_string_list = ROBOTO_UDIFF_EXPECTED.split("\n")
@@ -211,3 +239,23 @@ def test_unified_diff_remote_404_first_file():
 def test_unified_diff_remote_404_second_file():
     with pytest.raises(AIOError):
         u_diff(ROBOTO_BEFORE_URL, URL_404)
+
+
+def test_unified_diff_remote_non_url_exception():
+    """This raises an exception in the aiohttp get request call"""
+    with pytest.raises(AIOError):
+        u_diff("https:bogus", "https:bogus")
+
+
+#
+#
+#  Private functions
+#
+#
+
+def test_ttfont_save_xml():
+    tt = TTFont(ROBOTO_BEFORE_PATH)
+    with tempfile.TemporaryDirectory() as tmpdirname:
+        path = os.path.join(tmpdirname, "test.ttx")
+        _ttfont_save_xml(tt, path, None, None)
+        assert os.path.isfile(path)
