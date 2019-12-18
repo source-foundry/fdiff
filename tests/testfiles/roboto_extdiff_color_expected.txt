@@ -1,0 +1,243 @@
+[31m--- /var/folders/x7/vs8mbwmx1hg1vcb53nlygt0m0000gn/T/tmp6mjzf6a2/left.ttx	2019-12-17 22:47:31.000000000 -0500
+[0m[32m+++ /var/folders/x7/vs8mbwmx1hg1vcb53nlygt0m0000gn/T/tmp6mjzf6a2/right.ttx	2019-12-17 22:47:31.000000000 -0500
+[0m[36m@@ -4,34 +4,34 @@
+[0m   <GlyphOrder>
+     <!-- The 'id' attribute is only for humans; it is ignored when parsed. -->
+     <GlyphID id="0" name=".notdef"/>
+[31m-    <GlyphID id="1" name=".null"/>
+[0m[31m-    <GlyphID id="2" name="uni0002"/>
+[0m[31m-    <GlyphID id="3" name="uni0009"/>
+[0m[32m+    <GlyphID id="1" name="glyph00001"/>
+[0m[32m+    <GlyphID id="2" name="glyph00002"/>
+[0m[32m+    <GlyphID id="3" name="glyph00003"/>
+[0m     <GlyphID id="4" name="space"/>
+     <GlyphID id="5" name="exclam"/>
+     <GlyphID id="6" name="quotedbl"/>
+     <GlyphID id="7" name="numbersign"/>
+     <GlyphID id="8" name="dollar"/>
+     <GlyphID id="9" name="percent"/>
+[31m-    <GlyphID id="10" name="dollar.smcp"/>
+[0m[32m+    <GlyphID id="10" name="glyph00010"/>
+[0m   </GlyphOrder>
+ 
+   <head>
+     <!-- Most of this table will be recalculated by the compiler -->
+     <tableVersion value="1.0"/>
+     <fontRevision value="2.138"/>
+[31m-    <checkSumAdjustment value="0x2c16bb4a"/>
+[0m[32m+    <checkSumAdjustment value="0x5813354c"/>
+[0m     <magicNumber value="0x5f0f3cf5"/>
+     <flags value="00000000 00011001"/>
+     <unitsPerEm value="2048"/>
+     <created value="Fri Sep 12 10:29:34 2008"/>
+[31m-    <modified value="Thu May 25 10:49:57 2017"/>
+[0m[31m-    <xMin value="-1825"/>
+[0m[31m-    <yMin value="-555"/>
+[0m[31m-    <xMax value="4188"/>
+[0m[31m-    <yMax value="2163"/>
+[0m[32m+    <modified value="Thu Sep  5 18:07:11 2019"/>
+[0m[32m+    <xMin value="68"/>
+[0m[32m+    <yMin value="-237"/>
+[0m[32m+    <xMax value="1411"/>
+[0m[32m+    <yMax value="1692"/>
+[0m     <macStyle value="00000000 00000000"/>
+[31m-    <lowestRecPPEM value="9"/>
+[0m[32m+    <lowestRecPPEM value="8"/>
+[0m     <fontDirectionHint value="2"/>
+     <indexToLocFormat value="0"/>
+     <glyphDataFormat value="0"/>
+[36m@@ -42,10 +42,10 @@
+[0m     <ascent value="1900"/>
+     <descent value="-500"/>
+     <lineGap value="0"/>
+[31m-    <advanceWidthMax value="4368"/>
+[0m[31m-    <minLeftSideBearing value="-1825"/>
+[0m[31m-    <minRightSideBearing value="-1034"/>
+[0m[31m-    <xMaxExtent value="4187"/>
+[0m[32m+    <advanceWidthMax value="1500"/>
+[0m[32m+    <minLeftSideBearing value="69"/>
+[0m[32m+    <minRightSideBearing value="26"/>
+[0m[32m+    <xMaxExtent value="1411"/>
+[0m     <caretSlopeRise value="1"/>
+     <caretSlopeRun value="0"/>
+     <caretOffset value="0"/>
+[36m@@ -61,10 +61,10 @@
+[0m     <!-- Most of this table will be recalculated by the compiler -->
+     <tableVersion value="0x10000"/>
+     <numGlyphs value="11"/>
+[31m-    <maxPoints value="232"/>
+[0m[31m-    <maxContours value="22"/>
+[0m[31m-    <maxCompositePoints value="84"/>
+[0m[31m-    <maxCompositeContours value="7"/>
+[0m[32m+    <maxPoints value="60"/>
+[0m[32m+    <maxContours value="5"/>
+[0m[32m+    <maxCompositePoints value="0"/>
+[0m[32m+    <maxCompositeContours value="0"/>
+[0m     <maxZones value="1"/>
+     <maxTwilightPoints value="0"/>
+     <maxStorage value="0"/>
+[36m@@ -72,8 +72,8 @@
+[0m     <maxInstructionDefs value="0"/>
+     <maxStackElements value="0"/>
+     <maxSizeOfInstructions value="0"/>
+[31m-    <maxComponentElements value="6"/>
+[0m[31m-    <maxComponentDepth value="2"/>
+[0m[32m+    <maxComponentElements value="0"/>
+[0m[32m+    <maxComponentDepth value="0"/>
+[0m   </maxp>
+ 
+   <OS_2>
+[36m@@ -131,16 +131,16 @@
+[0m 
+   <hmtx>
+     <mtx name=".notdef" width="908" lsb="100"/>
+[31m-    <mtx name=".null" width="0" lsb="0"/>
+[0m     <mtx name="dollar" width="1151" lsb="110"/>
+[31m-    <mtx name="dollar.smcp" width="1056" lsb="68"/>
+[0m     <mtx name="exclam" width="528" lsb="161"/>
+[32m+    <mtx name="glyph00001" width="0" lsb="0"/>
+[0m[32m+    <mtx name="glyph00002" width="0" lsb="0"/>
+[0m[32m+    <mtx name="glyph00003" width="508" lsb="0"/>
+[0m[32m+    <mtx name="glyph00010" width="1056" lsb="69"/>
+[0m     <mtx name="numbersign" width="1261" lsb="119"/>
+     <mtx name="percent" width="1500" lsb="105"/>
+     <mtx name="quotedbl" width="656" lsb="137"/>
+     <mtx name="space" width="508" lsb="0"/>
+[31m-    <mtx name="uni0002" width="0" lsb="0"/>
+[0m[31m-    <mtx name="uni0009" width="508" lsb="0"/>
+[0m   </hmtx>
+ 
+   <cmap>
+[36m@@ -218,8 +218,6 @@
+[0m       <instructions/>
+     </TTGlyph>
+ 
+[31m-    <TTGlyph name=".null"/><!-- contains no outline data -->
+[0m[31m-
+[0m     <TTGlyph name="dollar" xMin="110" yMin="-208" xMax="1042" yMax="1692">
+       <contour>
+         <pt x="1042" y="377" on="1"/>
+[36m@@ -270,7 +268,37 @@
+[0m       <instructions/>
+     </TTGlyph>
+ 
+[31m-    <TTGlyph name="dollar.smcp" xMin="68" yMin="-237" xMax="990" yMax="1395">
+[0m[32m+    <TTGlyph name="exclam" xMin="161" yMin="-12" xMax="380" yMax="1456">
+[0m[32m+      <contour>
+[0m[32m+        <pt x="361" y="1456" on="1"/>
+[0m[32m+        <pt x="348" y="411" on="1"/>
+[0m[32m+        <pt x="181" y="411" on="1"/>
+[0m[32m+        <pt x="167" y="1456" on="1"/>
+[0m[32m+      </contour>
+[0m[32m+      <contour>
+[0m[32m+        <pt x="161" y="93" on="1"/>
+[0m[32m+        <pt x="161" y="138" on="0"/>
+[0m[32m+        <pt x="216" y="200" on="0"/>
+[0m[32m+        <pt x="270" y="200" on="1"/>
+[0m[32m+        <pt x="323" y="200" on="0"/>
+[0m[32m+        <pt x="380" y="138" on="0"/>
+[0m[32m+        <pt x="380" y="93" on="1"/>
+[0m[32m+        <pt x="380" y="50" on="0"/>
+[0m[32m+        <pt x="323" y="-12" on="0"/>
+[0m[32m+        <pt x="270" y="-12" on="1"/>
+[0m[32m+        <pt x="216" y="-12" on="0"/>
+[0m[32m+        <pt x="161" y="50" on="0"/>
+[0m[32m+      </contour>
+[0m[32m+      <instructions/>
+[0m[32m+    </TTGlyph>
+[0m[32m+
+[0m[32m+    <TTGlyph name="glyph00001"/><!-- contains no outline data -->
+[0m[32m+
+[0m[32m+    <TTGlyph name="glyph00002"/><!-- contains no outline data -->
+[0m[32m+
+[0m[32m+    <TTGlyph name="glyph00003"/><!-- contains no outline data -->
+[0m[32m+
+[0m[32m+    <TTGlyph name="glyph00010" xMin="68" yMin="-237" xMax="990" yMax="1395">
+[0m       <contour>
+         <pt x="990" y="300" on="1"/>
+         <pt x="990" y="168" on="0"/>
+[36m@@ -320,30 +348,6 @@
+[0m       <instructions/>
+     </TTGlyph>
+ 
+[31m-    <TTGlyph name="exclam" xMin="161" yMin="-12" xMax="380" yMax="1456">
+[0m[31m-      <contour>
+[0m[31m-        <pt x="361" y="1456" on="1"/>
+[0m[31m-        <pt x="348" y="411" on="1"/>
+[0m[31m-        <pt x="181" y="411" on="1"/>
+[0m[31m-        <pt x="167" y="1456" on="1"/>
+[0m[31m-      </contour>
+[0m[31m-      <contour>
+[0m[31m-        <pt x="161" y="93" on="1"/>
+[0m[31m-        <pt x="161" y="138" on="0"/>
+[0m[31m-        <pt x="216" y="200" on="0"/>
+[0m[31m-        <pt x="270" y="200" on="1"/>
+[0m[31m-        <pt x="323" y="200" on="0"/>
+[0m[31m-        <pt x="380" y="138" on="0"/>
+[0m[31m-        <pt x="380" y="93" on="1"/>
+[0m[31m-        <pt x="380" y="50" on="0"/>
+[0m[31m-        <pt x="323" y="-12" on="0"/>
+[0m[31m-        <pt x="270" y="-12" on="1"/>
+[0m[31m-        <pt x="216" y="-12" on="0"/>
+[0m[31m-        <pt x="161" y="50" on="0"/>
+[0m[31m-      </contour>
+[0m[31m-      <instructions/>
+[0m[31m-    </TTGlyph>
+[0m[31m-
+[0m     <TTGlyph name="numbersign" xMin="119" yMin="0" xMax="1235" yMax="1456">
+       <contour>
+         <pt x="686" y="0" on="1"/>
+[36m@@ -478,10 +482,6 @@
+[0m 
+     <TTGlyph name="space"/><!-- contains no outline data -->
+ 
+[31m-    <TTGlyph name="uni0002"/><!-- contains no outline data -->
+[0m[31m-
+[0m[31m-    <TTGlyph name="uni0009"/><!-- contains no outline data -->
+[0m[31m-
+[0m   </glyf>
+ 
+   <name>
+[36m@@ -529,33 +529,6 @@
+[0m     </namerecord>
+   </name>
+ 
+[31m-  <post>
+[0m[31m-    <formatType value="2.0"/>
+[0m[31m-    <italicAngle value="0.0"/>
+[0m[31m-    <underlinePosition value="-150"/>
+[0m[31m-    <underlineThickness value="100"/>
+[0m[31m-    <isFixedPitch value="0"/>
+[0m[31m-    <minMemType42 value="0"/>
+[0m[31m-    <maxMemType42 value="0"/>
+[0m[31m-    <minMemType1 value="0"/>
+[0m[31m-    <maxMemType1 value="0"/>
+[0m[31m-    <psNames>
+[0m[31m-      <!-- This file uses unique glyph names based on the information
+[0m[31m-           found in the 'post' table. Since these names might not be unique,
+[0m[31m-           we have to invent artificial names in case of clashes. In order to
+[0m[31m-           be able to retain the original information, we need a name to
+[0m[31m-           ps name mapping for those cases where they differ. That's what
+[0m[31m-           you see below.
+[0m[31m-            -->
+[0m[31m-    </psNames>
+[0m[31m-    <extraNames>
+[0m[31m-      <!-- following are the name that are not taken from the standard Mac glyph order -->
+[0m[31m-      <psName name="uni0002"/>
+[0m[31m-      <psName name="uni0009"/>
+[0m[31m-      <psName name="dollar.smcp"/>
+[0m[31m-    </extraNames>
+[0m[31m-  </post>
+[0m[31m-
+[0m   <GDEF>
+     <Version value="0x00010002"/>
+     <MarkGlyphSetsDef>
+[36m@@ -757,7 +730,7 @@
+[0m         <LookupFlag value="0"/>
+         <!-- SubTableCount=1 -->
+         <SingleSubst index="0" Format="1">
+[31m-          <Substitution in="dollar" out="dollar.smcp"/>
+[0m[32m+          <Substitution in="dollar" out="glyph00010"/>
+[0m         </SingleSubst>
+       </Lookup>
+     </LookupList>
