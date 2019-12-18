@@ -1,5 +1,5 @@
-[31m--- tests/testfiles/Roboto-Regular.subset1.ttf	2019-09-05T14:04:24.748302-04:00
-[0m[32m+++ tests/testfiles/Roboto-Regular.subset2.ttf	2019-09-05T14:07:27.594299-04:00
+[31m--- /var/folders/x7/vs8mbwmx1hg1vcb53nlygt0m0000gn/T/tmp6mjzf6a2/left.ttx	2019-12-17 22:47:31.000000000 -0500
+[0m[32m+++ /var/folders/x7/vs8mbwmx1hg1vcb53nlygt0m0000gn/T/tmp6mjzf6a2/right.ttx	2019-12-17 22:47:31.000000000 -0500
 [0m[36m@@ -4,34 +4,34 @@
 [0m   <GlyphOrder>
      <!-- The 'id' attribute is only for humans; it is ignored when parsed. -->
@@ -108,15 +108,15 @@
 [0m   </hmtx>
  
    <cmap>
-[36m@@ -217,8 +217,6 @@
-[0m       </contour>
-       <instructions/>
+[36m@@ -218,8 +218,6 @@
+[0m       <instructions/>
      </TTGlyph>
-[31m-
-[0m[31m-    <TTGlyph name=".null"/><!-- contains no outline data -->
-[0m 
-     <TTGlyph name="dollar" xMin="110" yMin="-208" xMax="1042" yMax="1692">
+ 
+[31m-    <TTGlyph name=".null"/><!-- contains no outline data -->
+[0m[31m-
+[0m     <TTGlyph name="dollar" xMin="110" yMin="-208" xMax="1042" yMax="1692">
        <contour>
+         <pt x="1042" y="377" on="1"/>
 [36m@@ -270,7 +268,37 @@
 [0m       <instructions/>
      </TTGlyph>
@@ -198,12 +198,11 @@
 [0m   </glyf>
  
    <name>
-[36m@@ -528,33 +528,6 @@
-[0m       http://www.apache.org/licenses/LICENSE-2.0
-     </namerecord>
+[36m@@ -529,33 +529,6 @@
+[0m     </namerecord>
    </name>
-[31m-
-[0m[31m-  <post>
+ 
+[31m-  <post>
 [0m[31m-    <formatType value="2.0"/>
 [0m[31m-    <italicAngle value="0.0"/>
 [0m[31m-    <underlinePosition value="-150"/>
@@ -229,9 +228,10 @@
 [0m[31m-      <psName name="dollar.smcp"/>
 [0m[31m-    </extraNames>
 [0m[31m-  </post>
-[0m 
-   <GDEF>
+[0m[31m-
+[0m   <GDEF>
      <Version value="0x00010002"/>
+     <MarkGlyphSetsDef>
 [36m@@ -757,7 +730,7 @@
 [0m         <LookupFlag value="0"/>
          <!-- SubTableCount=1 -->

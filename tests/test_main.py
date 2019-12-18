@@ -58,9 +58,10 @@ def test_main_filepath_validations_false_firstfont(capsys):
 
     with pytest.raises(SystemExit) as exit_info:
         run(args)
-        captured = capsys.readouterr()
-        assert captured.error.startswith("[*] ERROR: The file path")
-        assert exit_info.value.code == 1
+
+    captured = capsys.readouterr()
+    assert captured.err.startswith("[*] ERROR: The file path")
+    assert exit_info.value.code == 1
 
 
 def test_main_filepath_validations_false_secondfont(capsys):
@@ -69,9 +70,10 @@ def test_main_filepath_validations_false_secondfont(capsys):
 
     with pytest.raises(SystemExit) as exit_info:
         run(args)
-        captured = capsys.readouterr()
-        assert captured.error.startswith("[*] ERROR: The file path")
-        assert exit_info.value.code == 1
+
+    captured = capsys.readouterr()
+    assert captured.err.startswith("[*] ERROR: The file path")
+    assert exit_info.value.code == 1
 
 
 #
@@ -83,9 +85,10 @@ def test_main_include_exclude_defined_simultaneously(capsys):
 
     with pytest.raises(SystemExit) as exit_info:
         run(args)
-        captured = capsys.readouterr()
-        assert captured.error.startswith("[*] Error: --include and --exclude are mutually exclusive options")
-        assert exit_info.value.code == 1
+
+    captured = capsys.readouterr()
+    assert captured.err.startswith("[*] Error: --include and --exclude are mutually exclusive options")
+    assert exit_info.value.code == 1
 
 
 #
@@ -286,9 +289,10 @@ def test_main_include_with_bad_table_definition(capsys):
 
     with pytest.raises(SystemExit) as exit_info:
         run(args)
-        captured = capsys.readouterr()
-        assert captured.error.startswith("[*] ERROR:")
-        assert exit_info.value.code == 1
+
+    captured = capsys.readouterr()
+    assert captured.err.startswith("[*] ERROR:")
+    assert exit_info.value.code == 1
 
 
 def test_main_include_with_bad_table_definition_in_multi_table_request(capsys):
@@ -296,9 +300,10 @@ def test_main_include_with_bad_table_definition_in_multi_table_request(capsys):
 
     with pytest.raises(SystemExit) as exit_info:
         run(args)
-        captured = capsys.readouterr()
-        assert captured.error.startswith("[*] ERROR:")
-        assert exit_info.value.code == 1
+
+    captured = capsys.readouterr()
+    assert captured.err.startswith("[*] ERROR:")
+    assert exit_info.value.code == 1
 
 
 def test_main_exclude_with_bad_table_definition(capsys):
@@ -306,9 +311,10 @@ def test_main_exclude_with_bad_table_definition(capsys):
 
     with pytest.raises(SystemExit) as exit_info:
         run(args)
-        captured = capsys.readouterr()
-        assert captured.error.startswith("[*] ERROR:")
-        assert exit_info.value.code == 1
+
+    captured = capsys.readouterr()
+    assert captured.err.startswith("[*] ERROR:")
+    assert exit_info.value.code == 1
 
 
 def test_main_exclude_with_bad_table_definition_in_multi_table_request(capsys):
@@ -316,9 +322,10 @@ def test_main_exclude_with_bad_table_definition_in_multi_table_request(capsys):
 
     with pytest.raises(SystemExit) as exit_info:
         run(args)
-        captured = capsys.readouterr()
-        assert captured.error.startswith("[*] ERROR:")
-        assert exit_info.value.code == 1
+
+    captured = capsys.readouterr()
+    assert captured.err.startswith("[*] ERROR:")
+    assert exit_info.value.code == 1
 
 
 def test_main_head_request(capsys):
