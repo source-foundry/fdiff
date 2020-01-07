@@ -73,7 +73,7 @@ setup(
     python_requires=REQUIRES_PYTHON,
     entry_points={"console_scripts": ["fdiff = fdiff.__main__:main"]},
     classifiers=[
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
         "Intended Audience :: Developers",
         "Intended Audience :: End Users/Desktop",
@@ -84,5 +84,6 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Topic :: Multimedia",
     ],
 )
