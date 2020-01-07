@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.0.0
+
+- `fdiff executable`: added support for external executable tool diff execution with a new `--external` option
+- Library: major refactor of the `fdiff.diff` module
+- Library: add new public `external_diff` function to the `fdiff.diff` module
+- Library: minor refactor of `fdiff.color` module (removed unnecessary import)
+- [bugfix] Library: fixed bug in ANSI color output
+- updated fontTools dependency to v4.2.2
+- updated aiohttp dependency to v3.6.2
+- pinned the versions of the following dependencies of dependencies in the requirements.txt file: async-timeout, attrs, cffi, chardet, idna, multidict, pycares, pycparser, yarl 
+
 ## v0.5.1
 
 - `fdiff` executable: Fix help message - added information about pre/post file argument support for URL in addition to local file paths
