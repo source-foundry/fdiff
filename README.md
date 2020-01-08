@@ -153,6 +153,21 @@ Use the `--tail` option followed by an integer for the number of lines at the en
 $ fdiff --tail 20 [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
+#### Use an external diff tool <img src="https://img.shields.io/badge/beta-feature-orange" />
+
+**Please Note**: This feature has not been tested across all supported platforms.  Please report any issues that you come across on the project issue tracker.  
+
+By default, fdiff performs diffs with Python source.  If you run into performance issues with this approach, you can use compiled diff executables that are available on your platform.  fdiff will dump the ttx files and run the command that you provide on the command line passing the pre and post font ttx dump file paths as the first and second positional arguments to your command.
+
+For example, you may run the `diff -u` command on GNU/Linux or macOS like this:
+
+```
+$ fdiff --external
+```
+
+fdiff supports external diff tool with colored formatting and OpenType table filtering.  The context line, head, and tail options are not supported with the use of external diff tools.
+
+
 ### Other Options
 
 Use `fdiff -h` to view all available options.
