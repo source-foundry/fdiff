@@ -165,7 +165,7 @@ For example, you may run the `diff -u` command on GNU/Linux or macOS like this:
 $ fdiff --external="diff -u" [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
-fdiff supports external diff tool with colored formatting and OpenType table filtering.  The context line, head, and tail options are not supported with the use of external diff tools.
+fdiff supports built-in color formatting and OpenType table filtering when used with external diff tools.  The context line, head, and tail options are not supported with the use of external diff tools.
 
 
 ### Other Options
