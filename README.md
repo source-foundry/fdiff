@@ -13,7 +13,7 @@
 
 ## About
 
-`fdiff` is a Python command line comparison tool for assessment of differences in the OpenType table data between font files.  The tool provides cross-platform support on macOS, Windows, and Linux systems with a Python v3.6+ interpreter.
+`fdiff` is a Python command line comparison tool for assessment of differences in the OpenType table data between font files.  The tool provides cross-platform support for local and remote font diffs on macOS, Windows, and GNU/Linux systems with a Python v3.6+ interpreter.
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/source-foundry/fdiff/img/img/diff-example-crunch.png" width="500"/>
@@ -21,7 +21,7 @@
 
 ## What it does
 
-- Takes two font file path (or URL for remote fonts) arguments for the font comparison
+- Takes two font file path arguments (or URL for remote fonts) for the font comparison
 - Dumps OpenType table data in the fontTools library TTX format (XML)
 - Compares the OpenType table data across the two files using the unified diff format with 3 lines of surrounding context
 
@@ -32,7 +32,7 @@
 - Modify the number of context lines displayed in the diff with the `-l` or `--lines` option
 - Display the first n lines of the diff output with the `--head` option
 - Display the last n lines of the diff output with the `--tail` option
-
+- Execute the diff with an external diff tool using the `--external` option
 
 Run `fdiff --help` to view all available options.
 
@@ -69,7 +69,7 @@ $ pip3 install .
 
 ### Developer install from source
 
-The following approach installs the project and associated optional developer dependencies so that source changes are available without the need for re-installation.
+The following approach installs the project and associated optional developer dependencies, so that source changes are available without the need for re-installation.
 
 ```
 $ git clone https://github.com/source-foundry/fdiff.git
@@ -115,19 +115,19 @@ $ fdiff --color [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 
 #### Filter OpenType tables
 
-To include only specified tables in your diff, use the `--include` option with a comma separated list of table names:
+To include only specified tables in your diff, use the `--include` option with a comma-separated list of table names:
 
 ```
 $ fdiff --include head,post [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
-To exclude specified tables in your diff, use the `--exclude` option with a comma separated list of table names:
+To exclude specified tables in your diff, use the `--exclude` option with a comma-separated list of table names:
 
 ```
 $ fdiff --exclude glyf,OS/2 [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
-**Do not include spaces** between the comma separated table name values!
+**Do not include spaces** between the comma-separated table name values!
 
 #### Change number of context lines
 
@@ -207,10 +207,10 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
-### Third Party Licenses
+### Third-Party Licenses
 
 #### CPython `difflib` library
 
-This project distributes a modified version of third party source code from the [Python programming language standard library](https://github.com/python/cpython).  The `difflib.py` v3.7.4 module is Copyright © 2001-2019 Python Software Foundation; All Rights Reserved. This source is modified and distributed in this project under the [PSF LICENSE AGREEMENT FOR PYTHON 3.7.4](https://github.com/source-foundry/fdiff/blob/master/lib/fdiff/thirdparty/PYTHON_LICENSE).  The module is renamed to `fdifflib.py` to distinguish it from the upstream source and modifications made here are documented in comments at the head of the module.
+This project distributes a modified version of third party source code from the [Python programming language standard library](https://github.com/python/cpython).  The `difflib.py` v3.7.4 module is Copyright © 2001-2019 Python Software Foundation; All Rights Reserved. This source is modified and distributed in this project under the [PSF LICENSE AGREEMENT FOR PYTHON 3.7.4](https://github.com/source-foundry/fdiff/blob/master/lib/fdiff/thirdparty/PYTHON_LICENSE).  The module is renamed to `fdifflib.py` to distinguish it from the upstream source, and modifications made here are documented in comments at the head of the module.
 
 
