@@ -2,7 +2,7 @@
 
 ## v1.0.0
 
-- `fdiff executable`: added support for external executable tool diff execution with a new `--external` option
+- `fdiff` executable: added support for external executable tool diff execution with a new `--external` option
 - Library: major refactor of the `fdiff.diff` module
 - Library: add new public `external_diff` function to the `fdiff.diff` module
 - Library: minor refactor of `fdiff.color` module (removed unnecessary import)
