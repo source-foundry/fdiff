@@ -64,7 +64,7 @@ $ pip3 install fdiff
 ```
 $ git clone https://github.com/source-foundry/fdiff.git
 $ cd fdiff
-$ pip3 install .
+$ pip3 install -r requirements.txt .
 ```
 
 ### Developer install from source
