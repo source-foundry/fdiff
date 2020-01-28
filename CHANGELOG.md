@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.1
+
+- Bump fonttools from 4.2.2 to 4.2.4
+- Bump multidict from 4.7.3 to 4.7.4
+- Bump pycares from 3.1.0 to 3.1.1
+
 ## v1.0.0
 
 - `fdiff` executable: added support for external executable tool diff execution with a new `--external` option
