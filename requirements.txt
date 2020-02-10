@@ -9,7 +9,7 @@ aiofiles==0.4.0
 aiohttp==3.6.2
 async-timeout==3.0.1      # via aiohttp
 attrs==19.3.0             # via aiohttp
-cffi==1.13.2              # via pycares
+cffi==1.14.0              # via pycares
 chardet==3.0.4            # via aiohttp
 fonttools==4.3.0
 idna==2.8                 # via yarl
