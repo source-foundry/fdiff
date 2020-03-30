@@ -4,9 +4,17 @@ environment:
       PYTHON_HOME: "C:\\Python36"
       TOX_PY: py36
 
+    - JOB: "3.6 64-bit"
+      PYTHON_HOME: "C:\\Python36-x64"
+      TOX_PY: py36
+
     - JOB: "3.7 64-bit"
       PYTHON_HOME: "C:\\Python37-x64"
       TOX_PY: py37
+
+    - JOB: "3.8 64-bit"
+      PYTHON_HOME: "C:\\Python38-x64"
+      TOX_PY: py38
 
 install:
   # Prepend Python to the PATH of this build
@@ -14,7 +22,7 @@ install:
 
   # check that we have the expected version and architecture for Python
   - "python --version"
-  - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
+  - 'python -c "import struct; print(struct.calcsize(''P'') * 8)"'
 
   # upgrade pip and setuptools to avoid out-of-date warnings
   - "python -m pip install --disable-pip-version-check --user --upgrade pip setuptools virtualenv"
