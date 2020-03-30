@@ -32,9 +32,14 @@ matrix:
       install: pip install --upgrade tox pytest pytest-asyncio
       dist: xenial
       script: tox -e $TOX_ENV
+    - python: 3.8
+      env: TOX_ENV=py38
+      install: pip install --upgrade tox pytest pytest-asyncio
+      dist: xenial
+      script: tox -e $TOX_ENV
     - os: osx
       language: generic
-      osx_image: xcode11    # Python 3.7.4 running on macOS 10.14.4
+      osx_image: xcode11 # Python 3.7.4 running on macOS 10.14.4
       install: pip3 install --upgrade tox pytest pytest-asyncio
       env: TOX_ENV=py37
       script: tox -e $TOX_ENV
