@@ -35,6 +35,7 @@ def run(argv):
         description="An OpenType table diff tool for fonts."
     )
     parser.add_argument("--version", action="version", version=f"fdiff v{__version__}")
+    parser.add_argument("--git", type=str, nargs=7, action="git", help="Act as a diff driver for git (takes 7 parameters)")
     parser.add_argument(
         "-c",
         "--color",
@@ -106,6 +107,11 @@ def run(argv):
     # flip logic of the command line flag for multi process
     # optimization use
     use_mp = not args.nomp
+
+    if args.git:
+        pass
+        # TODO: catch 2nd & 5th parameters and stuff them in args.PREFILE and
+        # args.POSTFILE respectively
 
     if args.external:
         # ------------------------------
