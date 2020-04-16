@@ -35,7 +35,6 @@ def run(argv):
         description="An OpenType table diff tool for fonts."
     )
     parser.add_argument("--version", action="version", version=f"fdiff v{__version__}")
-    parser.add_argument("--git", type=str, nargs=7, help="Act as a diff driver for git (takes 7 parameters)")
     parser.add_argument(
         "-c",
         "--color",
@@ -65,15 +64,23 @@ def run(argv):
         "--nomp", action="store_true", help="Do not use multi process optimizations"
     )
     parser.add_argument("--external", type=str, help="Run external diff tool command")
+
+    parser.add_argument("--git", type=str, nargs=7, help="Act as a diff driver for git (takes 7 parameters)")
     #  parser.add_argument("PREFILE", help="Font file path/URL 1")
     #  parser.add_argument("POSTFILE", help="Font file path/URL 2")
 
-    args = parser.parse_args(argv)
+    args, positionals = parser.parse_known_args(argv)
 
+    inputs = argparse.Namespace()
     if args.git:
-        print(args.git)
-        args.PREFILE = args.git[1]
-        args.POSTFILE = args.git[4]
+        inputs.PREFILE = args.git[1]
+        inputs.POSTFILE = args.git[4]
+    else:
+        inputparser = argparse.ArgumentParser()
+        inputparser.add_argument("PREFILE", help="Font file path/URL 1")
+        inputparser.add_argument("POSTFILE", help="Font file path/URL 2")
+        inputparser.parse_args(positionals, namespace=inputs)
+
 
     # /////////////////////////////////////////////////////////
     #
@@ -85,14 +92,14 @@ def run(argv):
     #  File path argument validations
     # -------------------------------
 
-    if not args.PREFILE.startswith("http") and not file_exists(args.PREFILE):
+    if not inputs.PREFILE.startswith("http") and not file_exists(inputs.PREFILE):
         sys.stderr.write(
-            f"[*] ERROR: The file path '{args.PREFILE}' can not be found.{os.linesep}"
+            f"[*] ERROR: The file path '{inputs.PREFILE}' can not be found.{os.linesep}"
         )
         sys.exit(1)
-    if not args.POSTFILE.startswith("http") and not file_exists(args.POSTFILE):
+    if not inputs.POSTFILE.startswith("http") and not file_exists(inputs.POSTFILE):
         sys.stderr.write(
-            f"[*] ERROR: The file path '{args.POSTFILE}' can not be found.{os.linesep}"
+            f"[*] ERROR: The file path '{inputs.POSTFILE}' can not be found.{os.linesep}"
         )
         sys.exit(1)
 
@@ -134,8 +141,8 @@ def run(argv):
         try:
             diff = external_diff(
                 args.external,
-                args.PREFILE,
-                args.POSTFILE,
+                inputs.PREFILE,
+                inputs.POSTFILE,
                 include_tables=include_list,
                 exclude_tables=exclude_list,
                 use_multiprocess=use_mp,
@@ -160,8 +167,8 @@ def run(argv):
         # perform the unified diff analysis
         try:
             diff = u_diff(
-                args.PREFILE,
-                args.POSTFILE,
+                inputs.PREFILE,
+                inputs.POSTFILE,
                 context_lines=args.lines,
                 include_tables=include_list,
                 exclude_tables=exclude_list,
