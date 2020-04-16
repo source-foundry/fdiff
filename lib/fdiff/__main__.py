@@ -45,13 +45,14 @@ def run(argv):
     parser.add_argument(
         "-l", "--lines", type=int, default=3, help="Number of context lines (default 3)"
     )
-    parser.add_argument(
+    filters = parser.add_mutually_exclusive_group()
+    filters.add_argument(
         "--include",
         type=str,
         default=None,
         help="Comma separated list of tables to include",
     )
-    parser.add_argument(
+    filters.add_argument(
         "--exclude",
         type=str,
         default=None,
@@ -73,17 +74,6 @@ def run(argv):
     #  Validations
     #
     # /////////////////////////////////////////////////////////
-
-    # ----------------------------------
-    #  Incompatible argument validations
-    # ----------------------------------
-    #   --include and --exclude are mutually exclusive options
-    if args.include and args.exclude:
-        sys.stderr.write(
-            f"[*] Error: --include and --exclude are mutually exclusive options. "
-            f"Please use ONLY one of these options in your command.{os.linesep}"
-        )
-        sys.exit(1)
 
     # -------------------------------
     #  File path argument validations
