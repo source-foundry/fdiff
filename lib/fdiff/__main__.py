@@ -35,7 +35,7 @@ def run(argv):
         description="An OpenType table diff tool for fonts."
     )
     parser.add_argument("--version", action="version", version=f"fdiff v{__version__}")
-    parser.add_argument("--git", type=str, nargs=7, action="git", help="Act as a diff driver for git (takes 7 parameters)")
+    parser.add_argument("--git", type=str, nargs=7, help="Act as a diff driver for git (takes 7 parameters)")
     parser.add_argument(
         "-c",
         "--color",
@@ -65,10 +65,15 @@ def run(argv):
         "--nomp", action="store_true", help="Do not use multi process optimizations"
     )
     parser.add_argument("--external", type=str, help="Run external diff tool command")
-    parser.add_argument("PREFILE", help="Font file path/URL 1")
-    parser.add_argument("POSTFILE", help="Font file path/URL 2")
+    #  parser.add_argument("PREFILE", help="Font file path/URL 1")
+    #  parser.add_argument("POSTFILE", help="Font file path/URL 2")
 
     args = parser.parse_args(argv)
+
+    if args.git:
+        print(args.git)
+        args.PREFILE = args.git[1]
+        args.POSTFILE = args.git[4]
 
     # /////////////////////////////////////////////////////////
     #
@@ -107,11 +112,6 @@ def run(argv):
     # flip logic of the command line flag for multi process
     # optimization use
     use_mp = not args.nomp
-
-    if args.git:
-        pass
-        # TODO: catch 2nd & 5th parameters and stuff them in args.PREFILE and
-        # args.POSTFILE respectively
 
     if args.external:
         # ------------------------------
