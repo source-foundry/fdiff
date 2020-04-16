@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 
 def file_exists(path):
     """Validates file path as existing local file"""
-    return os.path.isfile(path)
+    return os.path.exists(path)
 
 
 def get_file_modtime(path):
