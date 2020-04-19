@@ -70,6 +70,15 @@ def run(argv):
         type=str,
         nargs=7,
         help="Act as a diff driver for git (takes 7 parameters)",
+        metavar=(
+            "PATH",
+            "OLD-FILE",
+            "OLD-HEX",
+            "OLD-MODE",
+            "NEW-FILE",
+            "NEW-HEX",
+            "NEW-MODE",
+        ),
     )
     #  parser.add_argument("PREFILE", help="Font file path/URL 1")
     #  parser.add_argument("POSTFILE", help="Font file path/URL 2")
