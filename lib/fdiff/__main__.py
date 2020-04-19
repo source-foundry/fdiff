@@ -65,7 +65,12 @@ def run(argv):
     )
     parser.add_argument("--external", type=str, help="Run external diff tool command")
 
-    parser.add_argument("--git", type=str, nargs=7, help="Act as a diff driver for git (takes 7 parameters)")
+    parser.add_argument(
+        "--git",
+        type=str,
+        nargs=7,
+        help="Act as a diff driver for git (takes 7 parameters)",
+    )
     #  parser.add_argument("PREFILE", help="Font file path/URL 1")
     #  parser.add_argument("POSTFILE", help="Font file path/URL 2")
 
@@ -80,7 +85,6 @@ def run(argv):
         inputparser.add_argument("PREFILE", help="Font file path/URL 1")
         inputparser.add_argument("POSTFILE", help="Font file path/URL 2")
         inputparser.parse_args(positionals, namespace=inputs)
-
 
     # /////////////////////////////////////////////////////////
     #
