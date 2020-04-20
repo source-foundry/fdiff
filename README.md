@@ -35,6 +35,7 @@ Looking for a high-level overview of OpenType table differences rather than low-
 - Display the first n lines of the diff output with the `--head` option
 - Display the last n lines of the diff output with the `--tail` option
 - Execute the diff with an external diff tool using the `--external` option
+- Use in Git as a diff-driver to be the default diff tool for fonts
 
 Run `fdiff --help` to view all available options.
 
@@ -102,6 +103,34 @@ $ fdiff [OPTIONS] [PRE-FONT FILE URL] [POST-FONT FILE FILE PATH]
 ```
 
 ⭐ **Tip**: Remote git repository hosting services (like Github) support access to files on different git branches by URL.  Use these repository branch URL to compare fonts across git branches in your repository.
+
+#### As Git's diff driver for fonts
+
+Git can be configured to automatically use a specific tool to diff specific file types. These are the steps to use `fdiff` as the default diff output for font files.
+
+1. Tell Git that the tool is available and how to run it. As with most git configuration options this may be set for a repository (`--local`), for your user (`--global`), or system (`--system`). We recommend setting this at the repository or user level. Assuming `fdiff` is available in your path, this setting should do the trick:
+
+        # Repository level
+        git config --local diff.fdiff.command 'fdiff -c --git'
+
+        # User level
+        git config --global diff.fdiff.command 'fdiff -c --git'
+
+    This will write something like the following to either the current repository's `.git/config` or your user's `$HOME/.gitconfig` file looking like this:
+
+    ```gitconfig
+    [diff "fdiff"]
+        command = fdiff -c --git
+    ```
+
+    Of course you may also edit the appropriate file and place that configuration manually.
+
+2. Tell Git to actually use that specific tool for supported file types. This may also be done at multiple places. Each repository may have it's own `.gitattributes` file, a user may have one setting global defaults in `$XDG_HOME/git/attributes`, or there may be a system wide default file. Wherever you choose to place this, the lines are the same:
+
+    ```gitattributes
+    .otf   diff=fdiff
+    .ttf   diff=fdiff
+    ```
 
 ### Options
 
