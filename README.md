@@ -124,8 +124,8 @@ Git can be configured to automatically use a specific tool to diff specific file
 2. Tell Git to use that specific tool for supported file types. This may also be done at multiple places. Each repository may have it's own `.gitattributes` file, a user may have one setting global defaults in `$XDG_HOME/git/attributes`, or there may be a system wide default file. Wherever you choose to place this, the lines are the same:
 
     ```gitattributes
-    .otf   diff=fdiff
-    .ttf   diff=fdiff
+    *.otf   diff=fdiff
+    *.ttf   diff=fdiff
     ```
 
 ### Options
