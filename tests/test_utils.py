@@ -1,17 +1,40 @@
 import os
 import re
 
-from fdiff.utils import get_file_modtime, get_tables_argument_list, file_exists
+from fdiff.utils import get_file_modtime, get_tables_argument_list, path_exists
 
 import pytest
 
 
-def test_file_exists_true():
-    assert file_exists(os.path.join("tests", "testfiles", "test.txt")) is True
+def test_path_exists_default_true():
+    assert (
+        path_exists(
+            os.path.join("tests", "testfiles", "test.txt"), include_dir_paths=False
+        )
+        is True
+    )
 
 
-def test_file_exists_false():
-    assert file_exists(os.path.join("tests", "testfiles", "bogus.jpg")) is False
+def test_path_exists_default_false():
+    assert (
+        path_exists(
+            os.path.join("tests", "testfiles", "bogus.jpg"), include_dir_paths=False
+        )
+        is False
+    )
+
+
+def test_path_exists_default_dirpath_fails():
+    assert (
+        path_exists(os.path.join("tests", "testfiles"), include_dir_paths=False)
+        is False
+    )
+
+
+def test_path_exists_default_dirpath_toggle_succeeds():
+    assert (
+        path_exists(os.path.join("tests", "testfiles"), include_dir_paths=True) is True
+    )
 
 
 def test_get_file_modtime():

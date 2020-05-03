@@ -8,7 +8,7 @@ from fdiff import __version__
 from fdiff.color import color_unified_diff_line
 from fdiff.diff import external_diff, u_diff
 from fdiff.textiter import head, tail
-from fdiff.utils import file_exists, get_tables_argument_list
+from fdiff.utils import path_exists, get_tables_argument_list
 
 
 def main():  # pragma: no cover
@@ -86,9 +86,16 @@ def run(argv):
     args, positionals = parser.parse_known_args(argv)
 
     inputs = argparse.Namespace()
+    include_dir_paths = False
     if args.git:
         inputs.PREFILE = args.git[1]
         inputs.POSTFILE = args.git[4]
+        # If the --git flag is used, we need to accept arguments
+        # that do not meet the definition of a file path using
+        # os.path.exists instead of os.path.isfile
+        # See https://github.com/source-foundry/fdiff/pull/48#discussion_r410424497
+        # for additional details
+        include_dir_paths = True
     else:
         inputparser = argparse.ArgumentParser()
         inputparser.add_argument("PREFILE", help="Font file path/URL 1")
@@ -105,12 +112,16 @@ def run(argv):
     #  File path argument validations
     # -------------------------------
 
-    if not inputs.PREFILE.startswith("http") and not file_exists(inputs.PREFILE):
+    if not inputs.PREFILE.startswith("http") and not path_exists(
+        inputs.PREFILE, include_dir_paths=include_dir_paths
+    ):
         sys.stderr.write(
             f"[*] ERROR: The file path '{inputs.PREFILE}' can not be found.{os.linesep}"
         )
         sys.exit(1)
-    if not inputs.POSTFILE.startswith("http") and not file_exists(inputs.POSTFILE):
+    if not inputs.POSTFILE.startswith("http") and not path_exists(
+        inputs.POSTFILE, include_dir_paths=include_dir_paths
+    ):
         sys.stderr.write(
             f"[*] ERROR: The file path '{inputs.POSTFILE}' can not be found.{os.linesep}"
         )
