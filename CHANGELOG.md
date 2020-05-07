@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.0.0
+
+- Backward incompatible change in the default unified diff approach for large files (fixes #54)
+- Transition to the upstream cPython implementation of `difflib.unified_diff` for diff execution
+- Remove cPython `difflib` derivative that was distributed with this project
+- Eliminate dual license structure with removal of cPython license and transition to Apache License, v2.0 only
+
 ## v1.0.2
 
 - Bump cffi to 1.14.0
