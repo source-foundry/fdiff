@@ -1,7 +1,7 @@
 all: install
 
 black:
-	black --exclude="difflib.py" lib/fdiff/*.py lib/fdiff/thirdparty/*.py
+	black lib/fdiff/*.py
 
 clean:
 	- rm dist/*.whl dist/*.tar.gz dist/*.zip
@@ -24,7 +24,7 @@ install-user:
 test: test-lint test-type-check test-unit
 
 test-coverage:
-	coverage run --omit="lib/fdiff/thirdparty/fdifflib.py" --source fdiff -m py.test
+	coverage run --source fdiff -m py.test
 	coverage report -m
 #	coverage html
 

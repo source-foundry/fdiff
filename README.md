@@ -210,11 +210,9 @@ Unit test coverage is executed with the `coverage` tool.  See the Makefile `test
 
 ## Acknowledgments
 
-`fdiff` is built with the fantastic [fontTools free software library](https://github.com/fonttools/fonttools) and performs text diffs of binary font files using dumps of the TTX OpenType table data serialization format as defined in the fontTools library.  The implementation of unified text file diffs is based on a (slightly) modified version of the Python `difflib` standard library source.  The modifications address diff performance issues with the lengthy text output from TTX dumps of font OpenType data. 
+`fdiff` is built with the fantastic [fontTools free software library](https://github.com/fonttools/fonttools) and performs text diffs of binary font files using dumps of the TTX OpenType table data serialization format as defined in the fontTools library.
 
-## Licenses
-
-### fdiff
+## License
 
 Copyright 2019 Source Foundry Authors and Contributors
 
@@ -223,11 +221,3 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
 [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
-
-### Third-Party Licenses
-
-#### CPython `difflib` library
-
-This project distributes a modified version of third party source code from the [Python programming language standard library](https://github.com/python/cpython).  The `difflib.py` v3.7.4 module is Copyright © 2001-2019 Python Software Foundation; All Rights Reserved. This source is modified and distributed in this project under the [PSF LICENSE AGREEMENT FOR PYTHON 3.7.4](https://github.com/source-foundry/fdiff/blob/master/lib/fdiff/thirdparty/PYTHON_LICENSE).  The module is renamed to `fdifflib.py` to distinguish it from the upstream source, and modifications made here are documented in comments at the head of the module.
-
-
