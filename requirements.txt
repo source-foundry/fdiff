@@ -16,4 +16,4 @@ idna==2.10                 # via yarl
 multidict==4.7.6          # via aiohttp, yarl
 pycares==3.1.1            # via aiodns
 pycparser==2.20           # via cffi
-yarl==1.5.0               # via aiohttp
+yarl==1.5.1               # via aiohttp
