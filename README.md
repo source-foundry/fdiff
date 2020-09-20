@@ -5,8 +5,8 @@
 
 [![PyPI](https://img.shields.io/pypi/v/fdiff?color=blueviolet&label=PyPI&logo=python&logoColor=white)](https://pypi.org/project/fdiff/)
 [![GitHub license](https://img.shields.io/github/license/source-foundry/fdiff?color=blue)](https://github.com/source-foundry/fdiff/blob/master/LICENSE)
-[![Build Status](https://travis-ci.org/source-foundry/fdiff.svg?branch=master)](https://travis-ci.org/source-foundry/fdiff)
-[![Build status](https://ci.appveyor.com/api/projects/status/eafvbkc4iyv78dip/branch/master?svg=true)](https://ci.appveyor.com/project/chrissimpkins/fdiff/branch/master)
+![Python CI](https://github.com/source-foundry/fdiff/workflows/Python%20CI/badge.svg)
+![Python Lints](https://github.com/source-foundry/fdiff/workflows/Python%20Lints/badge.svg)
 [![codecov](https://codecov.io/gh/source-foundry/fdiff/branch/master/graph/badge.svg)](https://codecov.io/gh/source-foundry/fdiff)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b58954eda44b4fd88ad8f4fa06e8010b)](https://www.codacy.com/app/SourceFoundry/fdiff)
 
@@ -188,13 +188,9 @@ Please use the standard Github pull request approach to propose source changes.
 
 Python source files are linted with `flake8`.  See the Makefile `test-lint` target for details.
 
-### Source file static type checks
-
-Static type checks are performed on Python source files with `pytype`.  See the Makefile `test-type-check` target for details.
-
 ### Testing
 
-The project runs continuous integration testing on [Travis CI](https://travis-ci.org/source-foundry/fdiff) and [Appveyor CI](https://ci.appveyor.com/project/chrissimpkins/fdiff) with the `pytest` and `tox` testing toolchain.  Test modules are located in the `tests` directory of the repository.
+The project runs continuous integration testing on the GitHub Actions service with the `pytest` toolchain.  Test modules are located in the `tests` directory of the repository.
 
 Local testing by Python interpreter version can be performed with the following command executed from the root of the repository:
 
