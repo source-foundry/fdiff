@@ -33,7 +33,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
       - name: Install Python testing dependencies
-        run: pip install --upgrade pytest
+        run: pip install --upgrade pytest pytest-asyncio
       - name: Install Python project dependencies
         uses: py-actions/py-dependency-install@v2
         with:
