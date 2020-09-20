@@ -1,5 +1,17 @@
 # Changelog
 
+## v2.0.1
+
+- Refactor to maintain line length < 90
+- Add flake8 linting as part of the CI
+- Transition to GitHub Actions CI testing service
+- Bump attrs dependency to v20.2.0
+- Bump cffi dependency to v1.14.2
+- Bump fonttools dependency to v4.14.0
+- Bump idna dependency to v2.10
+- Bump multidict dependency to v4.7.6
+- Bump yarl dependendency to v1.5.1
+
 ## v2.0.0
 
 - Backward incompatible change in the default unified diff approach for large files (fixes #54)
