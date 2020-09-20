@@ -108,20 +108,24 @@ $ fdiff [OPTIONS] [PRE-FONT FILE URL] [POST-FONT FILE FILE PATH]
 
 Git can be configured to automatically use a specific tool to diff specific file types. These are the steps to use `fdiff` as the default diff output for font files.
 
-1. Tell Git how to run the tool. As with most git configuration options this may be set for a repository (`--local`), for your user (`--global`), or system (`--system`). We recommend setting this at the user level. Assuming `fdiff` is available in your path, this setting should do the trick:
+1. Tell Git that the tool is available and how to run it. As with most git configuration options this may be set for a repository (`--local`), for your user (`--global`), or system (`--system`). We recommend setting this at the repository or user level. Assuming `fdiff` is available in your path, this setting should do the trick:
 
+        # Repository level
+        git config --local diff.fdiff.command 'fdiff -c --git'
+
+        # User level
         git config --global diff.fdiff.command 'fdiff -c --git'
 
-    This will write it to your `$HOME/.gitconfig` file looking like this:
+    This will write something like the following to either the current repository's `.git/config` or your user's `$HOME/.gitconfig` file looking like this:
 
     ```gitconfig
     [diff "fdiff"]
         command = fdiff -c --git
     ```
 
-    Of course you may also edit it there.
+    Of course you may also edit the appropriate file and place that configuration manually.
 
-2. Tell Git to use that specific tool for supported file types. This may also be done at multiple places. Each repository may have it's own `.gitattributes` file, a user may have one setting global defaults in `$XDG_HOME/git/attributes`, or there may be a system wide default file. Wherever you choose to place this, the lines are the same:
+2. Tell Git to actually use that specific tool for supported file types. This may also be done at multiple places. Each repository may have it's own `.gitattributes` file, a user may have one setting global defaults in `$XDG_HOME/git/attributes`, or there may be a system wide default file. Wherever you choose to place this, the lines are the same:
 
     ```gitattributes
     *.otf   diff=fdiff
