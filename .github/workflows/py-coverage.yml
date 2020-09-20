@@ -45,7 +45,7 @@ jobs:
       - name: Generate coverage report
         run: |
           pip install --upgrade coverage
-          coverage run --source dehinter -m py.test
+          coverage run --source fdiff -m py.test
           coverage report -m
           coverage xml
       - name: Upload coverage to Codecov
