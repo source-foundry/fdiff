@@ -9,12 +9,24 @@ from fdiff.__main__ import run
 
 ROBOTO_BEFORE_PATH = os.path.join("tests", "testfiles", "Roboto-Regular.subset1.ttf")
 ROBOTO_AFTER_PATH = os.path.join("tests", "testfiles", "Roboto-Regular.subset2.ttf")
-ROBOTO_UDIFF_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_expected.txt")
-ROBOTO_UDIFF_COLOR_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_color_expected.txt")
-ROBOTO_UDIFF_1CONTEXT_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_1context_expected.txt")
-ROBOTO_UDIFF_HEADONLY_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_headonly_expected.txt")
-ROBOTO_UDIFF_HEADPOSTONLY_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_headpostonly_expected.txt")
-ROBOTO_UDIFF_EXCLUDE_HEADPOST_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_ex_headpost_expected.txt")
+ROBOTO_UDIFF_EXPECTED_PATH = os.path.join(
+    "tests", "testfiles", "roboto_udiff_expected.txt"
+)
+ROBOTO_UDIFF_COLOR_EXPECTED_PATH = os.path.join(
+    "tests", "testfiles", "roboto_udiff_color_expected.txt"
+)
+ROBOTO_UDIFF_1CONTEXT_EXPECTED_PATH = os.path.join(
+    "tests", "testfiles", "roboto_udiff_1context_expected.txt"
+)
+ROBOTO_UDIFF_HEADONLY_EXPECTED_PATH = os.path.join(
+    "tests", "testfiles", "roboto_udiff_headonly_expected.txt"
+)
+ROBOTO_UDIFF_HEADPOSTONLY_EXPECTED_PATH = os.path.join(
+    "tests", "testfiles", "roboto_udiff_headpostonly_expected.txt"
+)
+ROBOTO_UDIFF_EXCLUDE_HEADPOST_EXPECTED_PATH = os.path.join(
+    "tests", "testfiles", "roboto_udiff_ex_headpost_expected.txt"
+)
 
 ROBOTO_BEFORE_URL = "https://github.com/source-foundry/fdiff/raw/master/tests/testfiles/Roboto-Regular.subset1.ttf"
 ROBOTO_AFTER_URL = "https://github.com/source-foundry/fdiff/raw/master/tests/testfiles/Roboto-Regular.subset2.ttf"
@@ -80,20 +92,31 @@ def test_main_filepath_validations_false_secondfont(capsys):
 #  Mutually exclusive argument tests
 #
 
+
 def test_main_include_exclude_defined_simultaneously(capsys):
-    args = ["--include", "head", "--exclude", "head", ROBOTO_BEFORE_PATH, ROBOTO_AFTER_PATH]
+    args = [
+        "--include",
+        "head",
+        "--exclude",
+        "head",
+        ROBOTO_BEFORE_PATH,
+        ROBOTO_AFTER_PATH,
+    ]
 
     with pytest.raises(SystemExit) as exit_info:
         run(args)
 
     captured = capsys.readouterr()
-    assert captured.err.startswith("[*] Error: --include and --exclude are mutually exclusive options")
-    assert exit_info.value.code == 1
+    assert captured.err.endswith(
+        "error: argument --exclude: not allowed with argument --include\n"
+    )
+    assert exit_info.value.code == 2
 
 
 #
 #  Unified diff integration tests
 #
+
 
 def test_main_run_unified_default_local_files_no_diff(capsys):
     """Test default behavior when there is no difference in font files under evaluation"""

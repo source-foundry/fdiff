@@ -8,7 +8,7 @@ from fdiff import __version__
 from fdiff.color import color_unified_diff_line
 from fdiff.diff import external_diff, u_diff
 from fdiff.textiter import head, tail
-from fdiff.utils import file_exists, get_tables_argument_list
+from fdiff.utils import path_exists, get_tables_argument_list
 
 
 def main():  # pragma: no cover
@@ -45,13 +45,14 @@ def run(argv):
     parser.add_argument(
         "-l", "--lines", type=int, default=3, help="Number of context lines (default 3)"
     )
-    parser.add_argument(
+    filters = parser.add_mutually_exclusive_group()
+    filters.add_argument(
         "--include",
         type=str,
         default=None,
         help="Comma separated list of tables to include",
     )
-    parser.add_argument(
+    filters.add_argument(
         "--exclude",
         type=str,
         default=None,
@@ -63,10 +64,43 @@ def run(argv):
         "--nomp", action="store_true", help="Do not use multi process optimizations"
     )
     parser.add_argument("--external", type=str, help="Run external diff tool command")
-    parser.add_argument("PREFILE", help="Font file path/URL 1")
-    parser.add_argument("POSTFILE", help="Font file path/URL 2")
 
-    args = parser.parse_args(argv)
+    parser.add_argument(
+        "--git",
+        type=str,
+        nargs=7,
+        help="Act as a diff driver for git (takes 7 parameters)",
+        metavar=(
+            "PATH",
+            "OLD-FILE",
+            "OLD-HEX",
+            "OLD-MODE",
+            "NEW-FILE",
+            "NEW-HEX",
+            "NEW-MODE",
+        ),
+    )
+    #  parser.add_argument("PREFILE", help="Font file path/URL 1")
+    #  parser.add_argument("POSTFILE", help="Font file path/URL 2")
+
+    args, positionals = parser.parse_known_args(argv)
+
+    inputs = argparse.Namespace()
+    include_dir_paths = False
+    if args.git:
+        inputs.PREFILE = args.git[1]
+        inputs.POSTFILE = args.git[4]
+        # If the --git flag is used, we need to accept arguments
+        # that do not meet the definition of a file path using
+        # os.path.exists instead of os.path.isfile
+        # See https://github.com/source-foundry/fdiff/pull/48#discussion_r410424497
+        # for additional details
+        include_dir_paths = True
+    else:
+        inputparser = argparse.ArgumentParser()
+        inputparser.add_argument("PREFILE", help="Font file path/URL 1")
+        inputparser.add_argument("POSTFILE", help="Font file path/URL 2")
+        inputparser.parse_args(positionals, namespace=inputs)
 
     # /////////////////////////////////////////////////////////
     #
@@ -74,29 +108,22 @@ def run(argv):
     #
     # /////////////////////////////////////////////////////////
 
-    # ----------------------------------
-    #  Incompatible argument validations
-    # ----------------------------------
-    #   --include and --exclude are mutually exclusive options
-    if args.include and args.exclude:
-        sys.stderr.write(
-            f"[*] Error: --include and --exclude are mutually exclusive options. "
-            f"Please use ONLY one of these options in your command.{os.linesep}"
-        )
-        sys.exit(1)
-
     # -------------------------------
     #  File path argument validations
     # -------------------------------
 
-    if not args.PREFILE.startswith("http") and not file_exists(args.PREFILE):
+    if not inputs.PREFILE.startswith("http") and not path_exists(
+        inputs.PREFILE, include_dir_paths=include_dir_paths
+    ):
         sys.stderr.write(
-            f"[*] ERROR: The file path '{args.PREFILE}' can not be found.{os.linesep}"
+            f"[*] ERROR: The file path '{inputs.PREFILE}' can not be found.{os.linesep}"
         )
         sys.exit(1)
-    if not args.PREFILE.startswith("http") and not file_exists(args.POSTFILE):
+    if not inputs.POSTFILE.startswith("http") and not path_exists(
+        inputs.POSTFILE, include_dir_paths=include_dir_paths
+    ):
         sys.stderr.write(
-            f"[*] ERROR: The file path '{args.POSTFILE}' can not be found.{os.linesep}"
+            f"[*] ERROR: The file path '{inputs.POSTFILE}' can not be found.{os.linesep}"
         )
         sys.exit(1)
 
@@ -138,8 +165,8 @@ def run(argv):
         try:
             diff = external_diff(
                 args.external,
-                args.PREFILE,
-                args.POSTFILE,
+                inputs.PREFILE,
+                inputs.POSTFILE,
                 include_tables=include_list,
                 exclude_tables=exclude_list,
                 use_multiprocess=use_mp,
@@ -164,8 +191,8 @@ def run(argv):
         # perform the unified diff analysis
         try:
             diff = u_diff(
-                args.PREFILE,
-                args.POSTFILE,
+                inputs.PREFILE,
+                inputs.POSTFILE,
                 context_lines=args.lines,
                 include_tables=include_list,
                 exclude_tables=exclude_list,

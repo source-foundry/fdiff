@@ -5,9 +5,13 @@ import os
 from datetime import datetime, timezone
 
 
-def file_exists(path):
-    """Validates file path as existing local file"""
-    return os.path.isfile(path)
+def path_exists(path, include_dir_paths=False):
+    """Validates existing paths.  The include_dir_paths parameter
+    toggles acceptance of dir paths in addition to file paths."""
+    if include_dir_paths:
+        return os.path.exists(path)
+    else:
+        return os.path.isfile(path)
 
 
 def get_file_modtime(path):
