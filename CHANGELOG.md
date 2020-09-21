@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.2
+
+- update cffi dependency to bug fix release v1.14.3
+
 ## v2.0.1
 
 - Refactor to maintain line length < 90
