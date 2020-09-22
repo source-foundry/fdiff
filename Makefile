@@ -1,7 +1,7 @@
 all: install
 
 black:
-	black lib/fdiff/*.py
+	black -l 90 lib/fdiff/*.py
 
 clean:
 	- rm dist/*.whl dist/*.tar.gz dist/*.zip
@@ -29,10 +29,10 @@ test-coverage:
 #	coverage html
 
 test-lint:
-	flake8 --ignore=E501,W50 lib/fdiff
+	flake8 --ignore=W50 lib/fdiff
 
 test-type-check:
-	pytype lib/fdiff
+	mypy lib/fdiff
 
 test-unit:
 	tox
