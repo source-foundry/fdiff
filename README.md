@@ -7,6 +7,7 @@
 [![GitHub license](https://img.shields.io/github/license/source-foundry/fdiff?color=blue)](https://github.com/source-foundry/fdiff/blob/master/LICENSE)
 ![Python CI](https://github.com/source-foundry/fdiff/workflows/Python%20CI/badge.svg)
 ![Python Lints](https://github.com/source-foundry/fdiff/workflows/Python%20Lints/badge.svg)
+![Python Type Checks](https://github.com/source-foundry/fdiff/workflows/Python%20Type%20Checks/badge.svg)
 [![codecov](https://codecov.io/gh/source-foundry/fdiff/branch/master/graph/badge.svg)](https://codecov.io/gh/source-foundry/fdiff)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b58954eda44b4fd88ad8f4fa06e8010b)](https://www.codacy.com/app/SourceFoundry/fdiff)
 
