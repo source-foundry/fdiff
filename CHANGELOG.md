@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.1.0
+
+- Add type annotations to all Python source files
+- Refactor `remote.py` module namedtuple to Py3.6+ style `NamedTuple` derived class with type annotations
+- Transition from pytype to mypy as static type checker
+- Add GitHub Action static type check configuration
+- Refactor import statements with default `isort` formatting
+
 ## v2.0.2
 
 - update cffi dependency to bug fix release v1.14.3
