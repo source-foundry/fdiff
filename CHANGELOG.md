@@ -7,6 +7,7 @@
 - Transition from pytype to mypy as static type checker
 - Add GitHub Action static type check configuration
 - Refactor import statements with default `isort` formatting
+- Bump fonttools dependency to v4.15.0
 
 ## v2.0.2
 
