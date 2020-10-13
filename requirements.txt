@@ -13,7 +13,7 @@ cffi==1.14.3              # via pycares
 chardet==3.0.4            # via aiohttp
 fonttools==4.16.1         # via fdiff (setup.py)
 idna==2.10                # via yarl
-multidict==4.7.6          # via aiohttp, yarl
+multidict==5.0.0          # via aiohttp, yarl
 pycares==3.1.1            # via aiodns
 pycparser==2.20           # via cffi
 yarl==1.6.0               # via aiohttp
