@@ -2,6 +2,7 @@
 
 ## v2.1.1
 
+- Add cPython 3.9 interpreter unit testing
 - Add CodeQL static source testing 
 - Bump fonttools dependency to v4.16.1
 - Bump aiohttp dependency to v3.6.3
