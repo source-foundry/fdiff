@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.1.1
+
+- Add CodeQL static source testing 
+- Bump fonttools dependency to v4.16.1
+- Bump aiohttp dependency to v3.6.3
+- Bump multidict dependency to v5.0.0
+- Bump yarl dependency to v1.6.2
+
 ## v2.1.0
 
 - Add type annotations to all Python source files
