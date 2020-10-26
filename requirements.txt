@@ -6,7 +6,7 @@
 #
 aiodns==2.0.0             # via fdiff (setup.py)
 aiofiles==0.5.0           # via fdiff (setup.py)
-aiohttp==3.6.3            # via fdiff (setup.py)
+aiohttp==3.7.1            # via fdiff (setup.py)
 async-timeout==3.0.1      # via aiohttp
 attrs==20.2.0             # via aiohttp
 cffi==1.14.3              # via pycares
@@ -16,4 +16,5 @@ idna==2.10                # via yarl
 multidict==5.0.0          # via aiohttp, yarl
 pycares==3.1.1            # via aiodns
 pycparser==2.20           # via cffi
+typing-extensions==3.7.4.3  # via aiohttp
 yarl==1.6.2               # via aiohttp
