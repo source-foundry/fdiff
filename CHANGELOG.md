@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.1.2
+
+- fix: apply aiohttp patch version 3.7.1 to address dependency versioning conflict with multidict dependency
+
 ## v2.1.1
 
 - Add cPython 3.9 interpreter unit testing
