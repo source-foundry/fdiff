@@ -5,7 +5,7 @@
 #    pip-compile
 #
 aiodns==2.0.0             # via fdiff (setup.py)
-aiofiles==0.5.0           # via fdiff (setup.py)
+aiofiles==0.6.0           # via fdiff (setup.py)
 aiohttp==3.7.1            # via fdiff (setup.py)
 async-timeout==3.0.1      # via aiohttp
 attrs==20.2.0             # via aiohttp
