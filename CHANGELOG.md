@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.1.3
+
+- Broaden dependency support for Python wheels on the Windows platform
+- Bump aiofiles dependency to v0.6.0
+- Bump aiohttp dependency to v3.7.2
+- Bump attrs dependency to v20.3.0
+- Bump fonttools dependency to v4.17.0
+- Bump multidict dependency to v5.0.2
+- Bump yarl dependency to v1.6.3
+
 ## v2.1.2
 
 - fix: apply aiohttp patch version 3.7.1 to address dependency versioning conflict with multidict dependency
