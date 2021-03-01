@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.1.4
+
+- Bump aiohttp dependency to v3.7.4
+- Bump cffi dependency to v1.14.5
+- Bump fonttools dependency to v4.21.1
+- Bump idna dependency to v3.1
+- Bump multidict dependency to v5.1.0
+
 ## v2.1.3
 
 - Broaden dependency support for Python wheels on the Windows platform
