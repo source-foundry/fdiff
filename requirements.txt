@@ -8,7 +8,7 @@ aiodns==2.0.0             # via fdiff (setup.py)
 aiofiles==0.6.0           # via fdiff (setup.py)
 aiohttp==3.7.4.post0            # via fdiff (setup.py)
 async-timeout==3.0.1      # via aiohttp
-attrs==20.3.0             # via aiohttp
+attrs==21.2.0             # via aiohttp
 cffi==1.14.5              # via pycares
 chardet==3.0.4            # via aiohttp
 fonttools==4.21.1         # via fdiff (setup.py)
