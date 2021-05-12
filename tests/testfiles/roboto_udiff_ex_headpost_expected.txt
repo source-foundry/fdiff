@@ -176,7 +176,7 @@
 @@ -709,7 +709,7 @@
          <LookupFlag value="0"/>
          <!-- SubTableCount=1 -->
-         <SingleSubst index="0" Format="1">
+         <SingleSubst index="0">
 -          <Substitution in="dollar" out="dollar.smcp"/>
 +          <Substitution in="dollar" out="glyph00010"/>
          </SingleSubst>
