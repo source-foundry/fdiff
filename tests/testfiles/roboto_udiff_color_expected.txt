@@ -235,7 +235,7 @@
 [36m@@ -757,7 +730,7 @@
 [0m         <LookupFlag value="0"/>
          <!-- SubTableCount=1 -->
-         <SingleSubst index="0" Format="1">
+         <SingleSubst index="0">
 [31m-          <Substitution in="dollar" out="dollar.smcp"/>
 [0m[32m+          <Substitution in="dollar" out="glyph00010"/>
 [0m         </SingleSubst>
