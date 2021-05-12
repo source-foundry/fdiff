@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.1.5
+
+- Bump fonttools dependency to v4.22.1
+- Fix broken unit tests that resulted from backwards incompatible ttx XML output format changes as of fonttools v4.22.0 (https://github.com/fonttools/fonttools/pull/2238)
+
 ## v2.1.4
 
 - Bump aiohttp dependency to v3.7.4
