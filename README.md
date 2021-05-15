@@ -46,7 +46,7 @@ Run `fdiff --help` to view all available options.
 - [Issues](#issues)
 - [Contributing](#contributing)
 - [Acknowledgments](#acknowledgments)
-- [Licenses](#license)
+- [License](#license)
 
 ## Installation
 
