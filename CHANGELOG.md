@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.2.0
+
+- Add indeterminate progress indicators during processing
+- Bump aiodns dependency to v3.0.0
+- Bump chardet dependency to v4.0.0
+- Bump pycares dependency to v4.0.0
+- Bump fonttools dependency to v4.23.1
+- Add new rich package dependency
+- Add pull request support to GitHub Actions workflow configurations
+
 ## v2.1.5
 
 - Bump fonttools dependency to v4.22.1
