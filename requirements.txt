@@ -36,7 +36,7 @@ pycparser==2.20
     # via cffi
 pygments==2.10.0
     # via rich
-rich==10.10.0
+rich==10.11.0
     # via fdiff (setup.py)
 typing-extensions==3.10.0.2
     # via aiohttp
