@@ -10,7 +10,7 @@ LICENSE = "Apache License v2.0"
 URL = "https://github.com/source-foundry/fdiff"
 EMAIL = "chris@sourcefoundry.org"
 AUTHOR = "Source Foundry Authors"
-REQUIRES_PYTHON = ">=3.6.0"
+REQUIRES_PYTHON = ">=3.7.0"
 
 INSTALL_REQUIRES = [
     "fontTools >= 4.0.0",
