@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import os
+import sys
+from unittest.mock import MagicMock
 
 import pytest
 
@@ -9,12 +11,24 @@ from fdiff.__main__ import run
 
 ROBOTO_BEFORE_PATH = os.path.join("tests", "testfiles", "Roboto-Regular.subset1.ttf")
 ROBOTO_AFTER_PATH = os.path.join("tests", "testfiles", "Roboto-Regular.subset2.ttf")
-ROBOTO_UDIFF_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_expected.txt")
-ROBOTO_UDIFF_COLOR_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_color_expected.txt")
-ROBOTO_UDIFF_1CONTEXT_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_1context_expected.txt")
-ROBOTO_UDIFF_HEADONLY_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_headonly_expected.txt")
-ROBOTO_UDIFF_HEADPOSTONLY_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_headpostonly_expected.txt")
-ROBOTO_UDIFF_EXCLUDE_HEADPOST_EXPECTED_PATH = os.path.join("tests", "testfiles", "roboto_udiff_ex_headpost_expected.txt")
+ROBOTO_UDIFF_EXPECTED_PATH = os.path.join(
+    "tests", "testfiles", "roboto_udiff_expected.txt"
+)
+ROBOTO_UDIFF_COLOR_EXPECTED_PATH = os.path.join(
+    "tests", "testfiles", "roboto_udiff_color_expected.txt"
+)
+ROBOTO_UDIFF_1CONTEXT_EXPECTED_PATH = os.path.join(
+    "tests", "testfiles", "roboto_udiff_1context_expected.txt"
+)
+ROBOTO_UDIFF_HEADONLY_EXPECTED_PATH = os.path.join(
+    "tests", "testfiles", "roboto_udiff_headonly_expected.txt"
+)
+ROBOTO_UDIFF_HEADPOSTONLY_EXPECTED_PATH = os.path.join(
+    "tests", "testfiles", "roboto_udiff_headpostonly_expected.txt"
+)
+ROBOTO_UDIFF_EXCLUDE_HEADPOST_EXPECTED_PATH = os.path.join(
+    "tests", "testfiles", "roboto_udiff_ex_headpost_expected.txt"
+)
 
 ROBOTO_BEFORE_URL = "https://github.com/source-foundry/fdiff/raw/master/tests/testfiles/Roboto-Regular.subset1.ttf"
 ROBOTO_AFTER_URL = "https://github.com/source-foundry/fdiff/raw/master/tests/testfiles/Roboto-Regular.subset2.ttf"
@@ -80,14 +94,24 @@ def test_main_filepath_validations_false_secondfont(capsys):
 #  Mutually exclusive argument tests
 #
 
+
 def test_main_include_exclude_defined_simultaneously(capsys):
-    args = ["--include", "head", "--exclude", "head", ROBOTO_BEFORE_PATH, ROBOTO_AFTER_PATH]
+    args = [
+        "--include",
+        "head",
+        "--exclude",
+        "head",
+        ROBOTO_BEFORE_PATH,
+        ROBOTO_AFTER_PATH,
+    ]
 
     with pytest.raises(SystemExit) as exit_info:
         run(args)
 
     captured = capsys.readouterr()
-    assert captured.err.startswith("[*] Error: --include and --exclude are mutually exclusive options")
+    assert captured.err.startswith(
+        "[*] Error: --include and --exclude are mutually exclusive options"
+    )
     assert exit_info.value.code == 1
 
 
@@ -95,13 +119,16 @@ def test_main_include_exclude_defined_simultaneously(capsys):
 #  Unified diff integration tests
 #
 
+
 def test_main_run_unified_default_local_files_no_diff(capsys):
     """Test default behavior when there is no difference in font files under evaluation"""
     args = [ROBOTO_BEFORE_PATH, ROBOTO_BEFORE_PATH]
 
     run(args)
     captured = capsys.readouterr()
-    assert captured.out.startswith("[*] There is no difference between the files.")
+    assert captured.out.startswith(
+        "[*] There is no difference in the tested OpenType tables"
+    )
 
 
 def test_main_run_unified_default_local_files(capsys):
@@ -180,24 +207,24 @@ def test_main_run_unified_default_404(capsys):
 
 
 def test_main_run_unified_color(capsys):
-    args = ["-c", ROBOTO_BEFORE_PATH, ROBOTO_AFTER_PATH]
+    # prior to v3.0.0, the `-c` / `--color` option was required for color output
+    # this is the default as of v3.0.0 and the test arguments were
+    # modified here
+    args = [ROBOTO_BEFORE_PATH, ROBOTO_AFTER_PATH]
+    # we also need to mock sys.stdout.isatty because color does not
+    # show when this returns False
+    sys.stdout.isatty = MagicMock(return_value=True)
 
     run(args)
     captured = capsys.readouterr()
-
+    # spot checks for escape code start sequence
     res_string_list = captured.out.split("\n")
-    expected_string_list = ROBOTO_UDIFF_COLOR_EXPECTED.split("\n")
-
-    # have to handle the tests for the top two file path lines
-    # differently than the rest of the comparisons because
-    # the time is defined using local platform settings
-    # which makes tests fail on different remote CI testing services
-    for x, line in enumerate(res_string_list):
-        # treat top two lines of the diff as comparison of first 10 chars only
-        if x in (0, 1):
-            assert line[0:9] == expected_string_list[x][0:9]
-        else:
-            assert line == expected_string_list[x]
+    assert captured.out.startswith("\x1b")
+    assert res_string_list[10].startswith("\x1b")
+    assert res_string_list[71].startswith("\x1b")
+    assert res_string_list[180].startswith("\x1b")
+    assert res_string_list[200].startswith("\x1b")
+    assert res_string_list[238].startswith("\x1b")
 
 
 def test_main_run_unified_context_lines_1(capsys):
