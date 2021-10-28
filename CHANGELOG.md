@@ -1,5 +1,25 @@
 # Changelog
 
+## v3.0.0
+
+- Remove Python 3.6 support
+- Convert to default ANSI escape code colored diff output in terminal environments only (this is a change in behavior from previous default that required `-c` / `--color` option to toggle colored output on)
+- Add new `--nocolor` option to disable colored diff output in terminals
+- Maintain `-c` / `--color` option to toggle ANSI escape code colored diff output on in non-terminal environments and avoid breakage in existing workflows
+- Modify user notice on no OpenTable diff from "There is no difference between the files" to "There is no difference in the tested OpenType tables"
+- Stabilize external executable diffs with the `--external` option
+- Add Python 3.10 testing, drop Python 3.6 testing
+- Bump aiofiles dependency to v0.7.0
+- Bump cffi dependency to v1.15.0
+- Bump fonttools dependency to v4.27.1
+- Bump idna dependency to v3.3
+- Bump multidict dependency to v5.2.0
+- Bump pycares dependency to v4.1.2
+- Bump pygments dependency to v2.10.0
+- Bump rich dependency to 10.12.0
+- Bump typing-extensions dependency to v3.10.0.2
+- Bump yarl dependency to v1.7.0
+
 ## v2.2.0
 
 - Add indeterminate progress indicators during processing

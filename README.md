@@ -30,7 +30,6 @@ Looking for a high-level overview of OpenType table differences rather than low-
 
 ## Optional Features
 
-- View colored diffs in the terminal with the `-c` or `--color` flag
 - Filter OpenType tables with the `--include` or `--exclude` options
 - Modify the number of context lines displayed in the diff with the `-l` or `--lines` option
 - Display the first n lines of the diff output with the `--head` option
@@ -106,16 +105,6 @@ $ fdiff [OPTIONS] [PRE-FONT FILE URL] [POST-FONT FILE FILE PATH]
 
 ### Options
 
-#### Color diffs
-
-Uncolored diffs are performed by default.
-
-To view a colored diff in your terminal, include either the `-c` or `--color` option in your command:
-
-```
-$ fdiff --color [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
-```
-
 #### Filter OpenType tables
 
 To include only specified tables in your diff, use the `--include` option with a comma-separated list of table names:
@@ -156,7 +145,7 @@ Use the `--tail` option followed by an integer for the number of lines at the en
 $ fdiff --tail 20 [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
-#### Use an external diff tool <img src="https://img.shields.io/badge/beta-feature-orange" />
+#### Use an external diff tool
 
 **Please Note**: This feature has not been tested across all supported platforms.  Please report any issues that you come across on the project issue tracker.  
 
@@ -169,6 +158,16 @@ $ fdiff --external="diff -u" [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
 ```
 
 fdiff supports built-in color formatting and OpenType table filtering when used with external diff tools.  The context line, head, and tail options are not supported with the use of external diff tools.
+
+#### Disable color diffs
+
+ANSI escape code colored diffs are performed by default in terminal environments.
+
+To view a diff without ANSI escape codes in your terminal, include the `--nocolor` option in your command:
+
+```
+$ fdiff --nocolor [PRE-FONT FILE PATH] [POST-FONT FILE PATH]
+```
 
 
 ### Other Options
