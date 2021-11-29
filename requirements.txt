@@ -6,7 +6,7 @@
 #
 aiodns==3.0.0
     # via fdiff (setup.py)
-aiofiles==0.7.0
+aiofiles==0.8.0
     # via fdiff (setup.py)
 aiohttp==3.7.4.post0
     # via fdiff (setup.py)
