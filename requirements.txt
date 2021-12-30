@@ -12,7 +12,7 @@ aiohttp==3.7.4.post0
     # via fdiff (setup.py)
 async-timeout==3.0.1
     # via aiohttp
-attrs==21.2.0
+attrs==21.4.0
     # via aiohttp
 cffi==1.15.0
     # via pycares
