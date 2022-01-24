@@ -26,7 +26,7 @@ fonttools==4.28.5
     # via fdiff (setup.py)
 idna==3.3
     # via yarl
-multidict==5.2.0
+multidict==6.0.1
     # via
     #   aiohttp
     #   yarl
