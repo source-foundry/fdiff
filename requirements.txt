@@ -38,7 +38,7 @@ pygments==2.11.2
     # via rich
 rich==11.2.0
     # via fdiff (setup.py)
-typing-extensions==4.0.1
+typing-extensions==4.1.1
     # via aiohttp
 yarl==1.7.2
     # via aiohttp
