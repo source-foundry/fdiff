@@ -18,7 +18,7 @@ cffi==1.15.0
     # via pycares
 chardet==4.0.0
     # via aiohttp
-colorama==0.4.4
+colorama==0.4.5
     # via rich
 commonmark==0.9.1
     # via rich
