@@ -30,7 +30,7 @@ multidict==6.0.2
     # via
     #   aiohttp
     #   yarl
-pycares==4.2.0
+pycares==4.2.1
     # via aiodns
 pycparser==2.21
     # via cffi
