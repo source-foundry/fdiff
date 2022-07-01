@@ -14,7 +14,7 @@ async-timeout==3.0.1
     # via aiohttp
 attrs==21.4.0
     # via aiohttp
-cffi==1.15.0
+cffi==1.15.1
     # via pycares
 chardet==4.0.0
     # via aiohttp
