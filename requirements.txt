@@ -16,7 +16,7 @@ attrs==21.4.0
     # via aiohttp
 cffi==1.15.1
     # via pycares
-chardet==4.0.0
+chardet==5.0.0
     # via aiohttp
 colorama==0.4.5
     # via rich
