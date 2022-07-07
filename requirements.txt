@@ -22,7 +22,7 @@ colorama==0.4.5
     # via rich
 commonmark==0.9.1
     # via rich
-fonttools==4.33.3
+fonttools==4.34.2
     # via fdiff (setup.py)
 idna==3.3
     # via yarl
