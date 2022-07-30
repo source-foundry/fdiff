@@ -10,7 +10,7 @@ aiofiles==0.8.0
     # via fdiff (setup.py)
 aiohttp==3.7.4.post0
     # via fdiff (setup.py)
-async-timeout==3.0.1
+async-timeout==4.0.2
     # via aiohttp
 attrs==22.1.0
     # via aiohttp
