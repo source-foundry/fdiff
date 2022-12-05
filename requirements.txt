@@ -40,5 +40,5 @@ rich==12.5.1
     # via fdiff (setup.py)
 typing-extensions==4.3.0
     # via aiohttp
-yarl==1.7.2
+yarl==1.8.2
     # via aiohttp
