@@ -34,7 +34,7 @@ pycares==4.2.1
     # via aiodns
 pycparser==2.21
     # via cffi
-pygments==2.12.0
+pygments==2.14.0
     # via rich
 rich==12.5.1
     # via fdiff (setup.py)
